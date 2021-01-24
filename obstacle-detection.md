@@ -17,6 +17,9 @@ Turtlebot3を起動します（[参照](./turtlebot-basics.html#実際のTurtleB
 
 **シミュレーションで試したい場合：**
 
+<span style="color:red">**下記の実習を行うために、まず`ROS_MASTER_URI`と`ROS_HOSTNAME`を`localhost`に戻します（[参照](./linux_and_ros_install.md#ネットワーク構成)）。**</span>
+
+
 下記のROSパケージをダウンロードすることをおすすめします（コンビニのシミュレーション環境）。
 
 ```shell
