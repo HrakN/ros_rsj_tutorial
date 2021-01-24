@@ -100,7 +100,11 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 このチューニングガイドでは、重要なパラメーターを設定するためのヒントをいくつか紹介します。 環境に応じてパフォーマンスを変更したい場合は、このヒントが役立つ可能性があり、チューニングの時間を節約できます。
 
-下記のパラメータのデフォルト値は`/opt/ros/kinetic/share/turtlebot3_navigation/param/costmap_common_param_burger.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
+下記のパラメータのデフォルト値は`/opt/ros/kinetic/share/turtlebot3_navigation/param/costmap_common_param_burger.yaml`のファイルに定義されています。下記のようなコマンドで設定することができます。`parameter_name`に変更したいパラメータ名に書き換え、`x`に新しい値に書き換えます。
+
+```shell
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml parameter_name:=x
+```
 
 _**inflation_radius**_
 - デフォルト値：1.0
