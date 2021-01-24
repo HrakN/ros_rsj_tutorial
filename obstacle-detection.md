@@ -125,7 +125,9 @@ def main():
         pass
 ```
 
-上記のプログラム（`/opt/ros/kinetic/lib/turtlebot3_example/turtlebot3_obstacle.py`）を新しいファイルにコピーします。
+上記のプログラム（`/opt/ros/kinetic/lib/turtlebot3_example/turtlebot3_obstacle.py`あるいは`/home/user/catkin_ws/src/turtlebot3/turtlebot3_example/nodes/turtlebot3_obstacle.py`）を新しいファイルにコピーします。
+
+コピーした後にスクリプットの１行目に`!#/usr/bin/python`が書いてあることを確認します。
 
 新しいROS packageを作成するか`rsj_seminar_2021_navigation`のパケージに追加します。
 ```shell
@@ -134,7 +136,7 @@ $ mkdir src
 ```
 上記のフォルダーに作成したファイル`name.py`を保存します（適切に名前を変更してください）。
 
-新しいパケージを作成するには：
+新しいパケージを作成するには（`package-name`がパケージ名を指定して適切に変更してください）：
 ```shell
 $ cd ~/catkin_ws/src
 $ catkin_create_pkg package-name message_generation rospy sensor_msgs geometry_msgs
