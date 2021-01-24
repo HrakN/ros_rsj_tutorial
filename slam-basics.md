@@ -242,7 +242,7 @@ $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping angula
 $ rosparam get パラメータ名
 ```
 
-どいうパラメータがあるかのとパラメータ名を調べるには：
+どういうパラメータがあるかのとパラメータ名を調べるには：
 ```shell
 $ rosparam list
 ```

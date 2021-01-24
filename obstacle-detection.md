@@ -20,7 +20,7 @@ Turtlebot3を起動します（[参照](./turtlebot-basics.html#実際のTurtleB
 下記のROSパケージをダウンロードすることをおすすめします（コンビニのシミュレーション環境）。
 
 ```shell
-$ cd ~/catkin_make/src/
+$ cd ~/catkin_ws/src/
 $ git clone https://github.com/igra9/rsj_seminar_2021_navigation.git
 $ cd ..
 $ catkin_make
@@ -29,7 +29,7 @@ $ catkin_make
 シミュレーションを起動します。
 
 ```shell
-$ roslaunch rsj_seminar_2021_navigation turtlebot3_conbini.launch
+$ roslaunch rsj_seminar_2021_navigation turtlebot3_convini.launch
 ```
 
 PCの性能によってシミュレータを起動するのに多少時間がかかります。
