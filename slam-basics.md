@@ -318,4 +318,4 @@ username@pc_name:~$
 <button type="button" class="bth btn-primary btn-lg">[
     <span style="color:black">**メインページへ**</span>](index.html)</button>
 <button type="button"  class="bth btn-success btn-lg">
-    [<span style="color:black">**次の実習へ**</span>](ros-navigation.html)</button>
+    [<span style="color:black">**次の実習へ**</span>](map-navigation.html)</button>
