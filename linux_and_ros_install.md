@@ -11,30 +11,29 @@ date: 2021-01-12
 
 ## 用意するもの
 
-- ノート型パソコンあるいはデスクトップPC
+- WiFiへの接続が可能なノート型パソコンあるいはデスクトップPC
 
   *<span style="color: red">本手順によりパソコンの既存のOS（Windows等）及び保存されているデータやソフトウェアは完全に削除されます。予めバックアップを行ってください。</span>*
-- 容量 4GB 以上の空 USB メモリ
 - インターネット接続
+- 容量 4GB 以上の空 USB メモリ
 - モニター１台
 - キーボード
 - HDMIケーブル
 - マウス
-- 容量 4GB 以上の空 SDカード
+- 容量 4GB 以上の空 SDカード(139回ロボット工学セミナー経由で実習キットを**購入されていない方のみ**)
 
-## 手順（リモートPCセットアップ）
+## リモートPCセットアップ
 
 ### Ubuntu Linux のダウンロード
 
 下記URLから Ubuntu 18.04 64bit Desktopのインストールイメージ、`ubuntu-18.04.x-desktop-amd64.iso`(xはバージョン番号)をダウンロードします。
 
+   [Ubuntu 18.04 Bionic](http://jp.releases.ubuntu.com/bionic/)
+
 * 本セミナーでは Ubuntu 18.04 64bit Desktop 版の使用を想定し、説明します
 * ネットワーク環境によっては、インストールイメージのリンクをクリック後、実際にダウンロード開始するまで、10分ほど必要な場合があるようです
   <!-- https://ubuntu-news.org/2021/09/17/ubuntu-18-04-6-lts-released/ -->
    
-
-   [Ubuntu 18.04 Bionic](http://jp.releases.ubuntu.com/bionic/)
-
    ![Ubuntu ダウンロード](images/seminar_no139/download_ubuntu18.04_0.png)
 
 
@@ -72,8 +71,7 @@ date: 2021-01-12
 
    ![Windows UAC](images/windows_uac.png)
 
-1. UNetbootin の画面で、「ディスクイメージ」を選択し、「…」ボタンをクリックして先ほどダウンロードした`ubuntu-18.04.x-desktop-amd64.iso` ファイルを選択します。<br>
-(x はダウンロードしたファイル名に合わせて変更ください)
+1. UNetbootin の画面で、「ディスクイメージ」を選択し、「…」ボタンをクリックして先ほどダウンロードした`ubuntu-18.04.x-desktop-amd64.iso` ファイルを選択します。(x はダウンロードしたファイルに合わせて変更ください)<br>
 
     また、「スペースは、リブートしてもファイルを維持するために使用」欄に「4096」と入力し、「ドライブ」欄で、使用する USB メモリのドライブ名を選択します。<br>
   内容を確認後、「OK」をクリックしてください。
@@ -83,7 +81,7 @@ date: 2021-01-12
    書き込み完了までしばらく待機します。<br>
    USB2.0 の場合10分以上、書き込み速度の遅いメモリだと30分程度かかる場合があります。<br>
 
-   また、以下のように、文字が描画されていないウィンドウが表示されることがあるようですが、ウィンドウ右上の「x」ボタンにより、閉じても問題ないようです。
+   また、以下のように、文字が描画されていないウィンドウが表示されることがあるようですが、ウィンドウ右上の「x」ボタンにより、ウィンドウを閉じても問題ないようです。
 
    ![UNetbootin empty window](images/seminar_no139/unetbootin_empty_window.png)
 
@@ -117,7 +115,7 @@ date: 2021-01-12
 
 1. Live USB をパソコンに接続し、パソコンの電源を入れます。
 
-1. "GNU GRUB"のメニューが表示されると、"Install Ubuntu"を選択します。
+1. "GNU GRUB"のメニューの表示時、"Install Ubuntu"を選択します。
 
 1. 以下の画面では言語を選択し、"続ける"を押します。その後、キーボードやネットワークに関しても環境に合わせて設定ください。
 
@@ -131,13 +129,13 @@ date: 2021-01-12
 
    ![Ubuntu install 3](images/seminar_no139/ubuntuinst_4_filesystem.png)
 
-1. インストール完了後、**LiveUSBを未接続の状態で**パソコンを再起動すると以下の画面が現れます。<br>
+1. インストール完了後、<span style="color: red">*LiveUSBを未接続の状態で*</span>パソコンを再起動すると以下の画面が現れます。<br>
 これで Ubuntu Linux のインストールが完了です。
 
    ![Ubuntu install 4](images/seminar_no139/ubuntuinst_7_desktop.png)
 
 
-### ROS ベースパッケージのインストール
+### ROS Melodic ベースパッケージのインストール
 
 ![](images/turtlebot3/remote_pc_and_turtlebot.png)
 
@@ -146,13 +144,12 @@ date: 2021-01-12
 >本章の内容は、TurtleBot3を制御する`リモートPC`(Ubuntu18.04がインストールされたデスクトップまたは、ノートパソコン)に対応しています。 **この手順は、TurtleBot3で実施しないでください。**
 
 
-下記のスクリプトを使用すると、ROS1のインストール手順を簡略化できます。
-ターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー`Ctrl+Alt+t`を使用して起動できます。 ROS1をインストールした後、リモートPCを再起動してください。
+下記のスクリプトを使用すると、ROS Melodic(ROS)のインストール手順を簡略化できます。
+ターミナルウィンドウでこのスクリプトを実行します。ターミナルアプリケーションは、画面の左上隅にあるUbuntu検索アイコンから起動できます。もしくは、ターミナルのショートカットキー`Ctrl+Alt+t`を使用して起動できます。 ROSをインストールした後、リモートPCを再起動してください。
+<br><br>
 
-
+**`【リモートPCで実施】`**
 ```shell
-【リモートPCで実施】
-
 $ sudo apt-get update
 $ sudo apt-get upgrade
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_melodic.sh
@@ -176,10 +173,11 @@ $ bash ./install_ros_melodic.sh
 <div class ="notice--info">{{info_01 | markdownify}}</div>
 -->
 
-### ROS1 依存パッケージのインストール
+### ROS 依存パッケージのインストール
 
-リモートPCにROS1依存パッケージをインストールする手順です。
+リモートPCにROS依存パッケージをインストールする手順です。<br><br>
 
+**`【リモートPCで実施】`**
 ```shell
 $ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
   ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc \
@@ -193,7 +191,9 @@ $ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
 ```
 
 リモートPCにTurtleBot3を制御するための依存パッケージをインストールする手順です。
+<br><br>
 
+**`【リモートPCで実施】`**
 ```shell
 $ sudo apt-get install ros-melodic-dynamixel-sdk
 $ sudo apt-get install ros-melodic-turtlebot3-msgs
@@ -204,6 +204,7 @@ $ sudo apt-get install ros-melodic-turtlebot3
 
 環境変数`TURTLEBOT3_MODEL`モデルにデフォルト名を設定します。以下のコマンドを端末に入力し、環境変数の設定と反映を行います。
 
+**`【リモートPCで実施】`**
 ```shell
 $ echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 $ source ~/.bashrc
@@ -212,41 +213,47 @@ $ source ~/.bashrc
 `catkin_make`コマンドへのパスが通っていることを確認します。<br>
 以下のコマンドを実行後、"/opt/ros/melodic/bin/catkin_make"といったパスが表示されれば、正しく設定できています。
 
+**`【リモートPCで実施】`**
 ```shell
 $ which catkin_make
 ```
 
 何も表示されない場合、環境変数設定に不備が考えられるため、以下のコマンドを再実行してください。
 
+
+**`【リモートPCで実施】`**
 ```shell
 $ source ~/.bashrc
 ```
 
-
+<a id="remotepc_wifi_settings"></a>
 ### ネットワーク構成
 
 ![](images/turtlebot3/network_configuration.png)
 
 TurtleBot PCとリモートPCの間で通信をするためにIPアドレスが必要です。 **リモートPCとTurtleBot PCは、同じwifiルーターに接続する必要があります。**
 
-リモートPCのターミナルウィンドウで次のコマンドを入力し、リモートPCのIPアドレスを確認します。
+`リモートPC`のターミナルウィンドウで次のコマンドを入力し、リモートPCのIPアドレスを確認します。
+<br>
 
+**`【リモートPCで実施】`**
 ```shell
 $ ip address show
 ```
 
 赤枠部分が、`リモートPC`のIPアドレスです。
-("/24"の部分は含みません)
+(環境によってIPアドレスが異なる場合があります。また、"/24"の部分は含みません。)
 
 ![](images/seminar_no139/rosset_0_ip.png)
 
-以下のコマンドを入力します。
+以下のコマンドを入力し、~/.bashrcを開きます。
 
+**`【リモートPCで実施】`**
 ```shell
 $ nano ~/.bashrc
 ```
 
-`Alt + /`を入力するとファイルの最終行へ移動します。
+`Alt + /` を入力するとファイルの最終行へ移動します。
 
 `ROS_MASTER_URI`と`ROS_HOSTNAME`の`localhost`のIPアドレスを、上記のターミナルウィンドウから取得したIPアドレスに変更します。
 (下図、赤枠部分)
@@ -257,130 +264,253 @@ $ nano ~/.bashrc
 
 次に、以下のコマンドでbashrcを実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ source ~/.bashrc
 ```
 
-以上で、リモートPCの開発環境構築は完了です。
-
-<!-- 2021/12/2 ここまで -->
-
-## 手順（TurtleBotメインコンピューター：Raspberry Pi 3 セットアップ）
+以上でリモートPCの開発環境構築は完了です。
 
 
-{% capture notice_01 %}
-**警告**:
-- この章の内容は、**TurtleBot3 Burger**のメインコンピューターとなる `Raspberry Pi 3`に対応しています。 この指示をリモートPC（デスクトップPCまたは、ノートパソコン）で**実施しない**でください。
-- セットアップ作業には、電源と時間が必要なためバッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用を推奨します。
-{% endcapture %}
+## 手順（TurtleBot制御コンピューター：Raspberry Pi 3+ セットアップ）
 
-### RaspbianベースのLinuxをインストールする
 
-**警告**: Raspberry Pi 3にLinuxをインストールするには、SDカードに少なくとも**8GB**の空き容量が必要です。
-{: .notice--warning}
+>**警告**
+>- この章の内容は、**TurtleBot3 Burger**の制御コンピューターとなる `Raspberry Pi 3+(Raspberry Pi)`に対応しています。 **本項の設定内容をリモートPC（デスクトップPCまたは、ノートパソコン）で実施しないでください。**
+>- セットアップ作業には、電源と時間が必要なためバッテリーは適していません。この作業では、SMPS(ACアダプタ)の使用を推奨します。
 
-RaspbianベースのLinuxディストリビューションイメージを提供しています。 それらはTurtleBot3に関連するROSおよびROSパッケージと共にプリインストールされています。 TurtleBot3 BurgerおよびWaffle Piモデルをサポートしています。 このディストリビューションイメージでは、Wolfram、Mathematica、Minecraft Pi、Oracle Java SEなどの非フリーソフトウェアが削除されています。
 
-#### リモートPCで
-- Raspbian for TurtleBot3に基づくLinuxディストリビューションイメージをダウンロードします。
-  - [ダウンロードリンク](http://www.robotis.com/service/download.php?no=1738)
-  - SHA256 (image_rpi_20190429.img.zip) : eb8173f3727db08087990b2c4e2bb211e70bd54644644834771fc8b971856b97
-  - SHA256 (image_rpi_20190429.img): 7a868c275169b1f02c04617cc0cce9654fd8222623c78b22d0a27c73a9609398
-- ダウンロード後、ダウンロードしたファイルを解凍します。
-- SDカードのイメージを書き込み手順
-  - [etcher.io](https://etcher.io/)にアクセスし、Etcher SDカードイメージユーティリティをダウンロードし、インストールします。
-  - Etcherを実行し、コンピューターまたはノートパソコンにダウンロードしたLinuxイメージを選択します。
-  - SDカードドライブを選択します。
-  - 書き込みを選択して、イメージをSDカードに転送します。
-- （他の書き込み方法）Linuxでは`dd`コマンドを使用できます。Windowsではアプリケーション`win32 Disk Imager`を使用できます。 完全な手順については、[こちら](https://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Linux_command_line)（Linuxユーザーの場合）および[こちら](https://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program)（Windowsユーザーの場合）をご覧ください。
+139回ロボット工学セミナー経由で実習キットを購入された方は、付属のSDカードに適切なイメージが記録されているので、下の[WiFiネットワーク設定を構成する](#tb3_wifi_settings)から実施ください。
 
-#### TurtleBot PCで
-*まだ電源に繋いでいないことを確認してください。*{: style="color: red"}
-- Raspberry PiをモニターにHDMIケーブルで接続し、キーボードとマウスをRaspberry Piに接続します。
-- SDカードをRaspberry Piに差し込みます。
-- 電源に繋いでください。
-- Raspbian OSのインストール後、ユーザー名**pi**とパスワード**turtlebot**でログインできます。 
-- SDカード全体を使用するようにファイルシステムを拡張します。
+もし、お持ちのTurtleBot3 BurgerにROS Melodicがインストールされていない場合、以下のHPより、Raspberry PiにROS Melodicのインストールを実施する必要があります。(画面上部のROSバージョン選択箇所において、'Melodic'を選択ください)
 
-  ```shell
-  sudo raspi-config
-  (select 7 Advanced Options > A1 Expand Filesystem)
-  ```
+ 3.2.1 "microSDカードとリーダーを準備する" ～ 3.2.4.2 "ディスクユーティリティ" まで実施ください。
 
-- [ワイヤレス・ネットワークへの接続ガイド](https://projects.raspberrypi.org/en/projects/raspberry-pi-using/3)
+https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup
 
-- ネットワークタイムプロトコル（NTP）サーバーにクエリを送信して、コンピューターの日付と時刻を同期および設定します。
 
-  ```shell
-  sudo apt-get install ntpdate
-  sudo ntpdate ntp.ubuntu.com
-  ```
+<!-- ページ内リンクのおまじない -->
+<a id="tb3_wifi_settings"></a> 
+### WiFiネットワーク設定を構成する
 
-- パスワード、ロケール、タイムゾーンを変更したい場合(オプション):
-  1. sudo raspi-config > 1 Change User Password
-  1. sudo raspi-config > 4 Localisation Options > I1 Change Locale
-  1. sudo raspi-config > 4 Localisation Options > I2 Change Timezone
+1. TurtleBotの制御コンピュータであるRaspberry Pi(以下、SBC)を起動
 
-- ROSのネットワーク設定
-　リモートPCのセットアップと同様([参照](#ネットワーク構成))にRasberry Pi 3のIPアドレスを調べる（`wlan0`の箇所）。
+   以下の手順で、SBCを起動し、ログインします。
+
+   - キーボードをSBCのUSBポートに接続します。
+   - SBC用起動イメージが格納されたmicroSDカードを、SBCに挿入します。
+
+     `SBCに電力を供給する前に、HDMIケーブルを接続する必要があります。接続しないと、SBCのHDMIポートが無効になります。`
+
+   - 電源を接続して、SBCをパワーオンします。
+   - アカウント "ubuntu"、パスワード "turtlebot"でログインします。
+
+1. 設定ファイルの修正
+  
+   修正対象ファイルを開く。
+
+   **`【SBCで実施】`**
+   ```shell
+   $ cd /etc/netplan
+   $ sudo nano 50-cloud-init.yaml
+   ```
+
+   エディターが開いたら、`WIFI_SSID`と`WIFI_PASSWORD`をWi-FiSSIDとパスワードに置き換えます。(下イメージ緑文字部分)
+
+   ![](images/seminar_no139/wifi_settings.png)
+
+   修正後、ファイルを保存(`Ctrl + o` → `enter`)し、編集を終了（`Ctrl + x`）します。
+
+   SBCを再起動します。
+
+   **`【SBCで実施】`**
+   ```shell
+   $ sudo reboot
+   ```
+
+### ROSのネットワーク設定
+SBCの再起動後、リモートPCのセットアップと同様([参照](#remotepc_wifi_settings))にSBCのIPアドレスを調べる（`wlan0`の箇所）。
    
-   ```shell
-   ifconfig
-   ```
-   `ROS_MASTER_URI`と`ROS_HOSTNAME`の`localhost`のIPアドレスを、それぞれにリモートPCのIPアドレスと上記のターミナルウィンドウから取得したIPアドレスに変更します。
+**`【SBCで実施】`**
+```shell
+$ ip address show
+```
 
-	```shell
-	nano ~/.bashrc
+エディタにて~/.bashrcを開きます。
 
-	export ROS_MASTER_URI=http://REMOTE_PC_IP_ADDRESS:11311
-	export ROS_HOSTNAME=RASPBERRY_PI_3_IP_ADDRESS
-	```
+**`【SBCで実施】`**
+```shell
+$ nano ~/.bashrc
+```
 
-   ファイルを保存して（`Ctrl + o`{: style="border: 1px solid black" }→`enter`{: style="border: 1px solid black" }キー)閉じる（`Ctrl+x`{: style="border: 1px solid black" }）。
+下図のように、環境変数`ROS_MASTER_URI`と`ROS_HOSTNAME`のIPアドレスを、それぞれリモートPCのIPアドレスとSBCから取得したIPアドレスに変更します。
 
-	```shell
-	source ~/.bashrc
-	```
+![](images/seminar_no139/wifi_ros_env.png)
 
-##### リモートPCでTurtleBot PCに接続方法
 
-- ワイヤレス構成が完了したら、デスクトップまたはノートパソコンからSSH経由でRaspberry Piに接続できます。
 
-   リモートPCとTurtleBot PCでSSHをインストールする。
-   ```shell
-   sudo apt-get install ssh
-   ```
+ファイルを保存し（`Ctrl + o` → `enter`)、閉じる（`Ctrl + x`）。
 
-   TurtleBot PCでSSHを有効にする。
-   ```shell
-   sudo service ssh start
-   sudo ufw allow ssh
-   ```
+さきほど修正した設定を反映するため、**~/.bashrcを編集したターミナルにて、** 以下を実行します。
+(~/.bashrcの修正により、今後、新規にターミナルを開いた時は自動で設定が反映されます)
+
+**`【SBCで実施】`**
+```shell
+$ source ~/.bashrc
+```
+
+## リモートPCからSBCへの接続方法
+
+ワイヤレス構成が完了したら、デスクトップまたはノートパソコンからSSH経由でSBCに接続できます。
+
+まずは、リモートPCとSBCでSSHをインストールする。
+
+SBCにログイン後、以下を実行する。
+
+**`【SBCで実施】`**
+```shell
+$ sudo apt-get install ssh
+```
+
+SBCでSSHを有効にする。
+
+**`【SBCで実施】`**
+```shell
+$ sudo service ssh start
+$ sudo ufw allow ssh
+```
  
-  リモートPCでRasberry Piと接続する（セミナー当日で行う）。
+リモートPCから、SBCに接続する。
+リモートPCにログインし、以下を入力する。
 
-  ```shell
-  ssh pi@192.168.xxx.xxx (The IP 192.168.xxx.xxx is your Raspberry Pi’s IP or hostname)
-  ```
-{% capture notice_03 %}
+**`【SBCで実施】`**
+```shell-session
+$ ssh ubuntu@192.168.YY.YY   (@の後はSBCのIPアドレス)
+ ubuntu@192.168.YY.YY\'s password: (パスワード "turtlebot" を入力)
+ (初めて接続する場合、接続を継続するかを問われるので、yesを入力する)
+```
 
-**注釈**: **公式 Raspbian Stretchとの変更点**
-- [Raspbian Stretch with desktop](https://www.raspberrypi.org/software/)をベースにしています。 RaspbianはDebian Stretchをベースにしています。
-- Wolfram、Mathematica、Minecraft Pi、Oracle Java SEなどの非フリーソフトウェアを削除しています。
-- libreofficeを削除してイメージのサイズを小さくしています。
-- raspi-configを使用してSSHおよびカメラ機能を有効化しています。
-- パスワードを変更しています: **turtlebot**
-- ROSおよびTurtleBot3のソフトウェアがインストール済みです。
-  - [ROS Kinetic Kame](http://wiki.ros.org/kinetic)と依存パッケージ
-  - [raspicam_node](https://github.com/UbiquityRobotics/raspicam_node) Raspberry Pi Cameraの依存パッケージ
-  - [hls_lfcd_lds_driver](https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver)レーザ距離センサの依存パッケージ
-  - [turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3)および、 [turtlebot3_msgs](https://github.com/ROBOTIS-GIT/turtlebot3_msgs)
-  のパッケージ
-  - インストール済みのROSパッケージ (132パッケージ): actionlib, actionlib_msgs, angles, bond, bond_core, bondcpp, bondpy, camera_calibration_parsers, camera_info_manager, catkin, class_loader, cmake_modules, collada_parser, collada_urdf, common_msgs, compressed_image_transport, control_msgs, cpp_common, cv_bridge, diagnostic_aggregator, diagnostic_analysis, diagnostic_common_diagnostics, diagnostic_msgs, diagnostic_updater, diagnostics, dynamic_reconfigure, eigen_conversions, eigen_stl_containers, executive_smach, filters, gencpp, geneus, genlisp, genmsg, gennodejs, genpy, geometric_shapes, geometry, geometry_msgs, hls_lfcd_lds_driver, image_transport, joint_state_publisher, kdl_conversions, kdl_parser, message_filters, message_generation, message_runtime, mk, nav_msgs, nodelet, nodelet_core, nodelet_topic_tools, octomap (plain cmake), opencv3 (plain cmake), orocos_kdl (plain cmake), pluginlib, python_orocos_kdl (plain cmake), python_qt_binding, random_numbers, raspicam_node, resource_retriever, robot, robot_model, robot_state_publisher, ros, ros_base, ros_comm, ros_core, rosbag, rosbag_migration_rule, rosbag_storage, rosbash, rosboost_cfg, rosbuild, rosclean, rosconsole, rosconsole_bridge, roscpp, roscpp_core, roscpp_serialization, roscpp_traits, roscreate, rosgraph, rosgraph_msgs, roslang, roslaunch, roslib, roslint, roslisp, roslz4, rosmake, rosmaster, rosmsg, rosnode, rosout, rospack, rosparam, rospy, rosserial_msgs, rosserial_python, rosservice, rostest, rostime, rostopic, rosunit, roswtf, self_test, sensor_msgs, shape_msgs, smach, smach_msgs, smach_ros, smclib, std_msgs, std_srvs, stereo_msgs, tf, tf_conversions, tf2, tf2_kdl, tf2_msgs, tf2_py, tf2_ros, topic_tools, trajectory_msgs, turtlebot3_bringup, turtlebot3_msgs, urdf, urdf_parser_plugin, visualization_msgs, xacro, xmlrpcpp
-{% endcapture %}
-<div class="notice--info">{{ notice_03 | markdownify }}</div>
 
-[appendix_raspi_cam]: /docs/en/platform/turtlebot3/appendix_raspi_cam/#raspberry-pi-camera
-[pc_network_configuration]: /docs/en/platform/turtlebot3/pc_setup/#network-configuration
-[network_configuration]: #5-network-configuration
-[enable_ssh_server_in_raspberry_pi]: /docs/en/platform/turtlebot3/faq/#enable-ssh-server-in-raspberry-pi
+SBCに接続できれば、設定は問題なくできています。
+
+接続できない場合、
+- sshで指定しているIPアドレス、アカウント、パスワードに誤りがないか
+- リモートPCとSBCを同じwifiルーターに接続しているか
+ 
+を確認してください。
+
+以上で、事前準備は終了です。
+
+<br>
+
+---
+
+## ご参考
+昨年度の" ロボットの作り方セミナー"にて、発生した問題についてまとめたテキストは以下になります。
+ロボットが正常に動作しない場合に参考になさってください。
+
+```
+RSJロボット工学セミナー 第131回 レポート
+
+Issue
+ロボットとPCが通信できない。(ロボットが動作しない)
+1. ROS_MASTER_URI、ROS_HOSTNAME(ROS_IP)が間違っている。
+解決方法：適切な値に変更する。
+
+2. 同一ネットワーク上にノードがない。(VMを使用した時に発生しやすい)
+解決方法：同一ネットワーク上に配置する。
+
+3. USBが断線している
+解決方法：USBケーブルを挿し直す。OpenCRとRaspberryPiのUSBが抜けている事が多かった。
+
+4. OpenCRのセットアップが終わっていない
+解決方法：以下の手順を再度やり直す。
+
+https://emanual.robotis.com/docs/en/platform/turtlebot3/opencr_setup/#opencr-setup
+
+5. Dynamixelのケーブルが断線している
+解決方法：ケーブルを挿し直す。
+
+6. DYNAMIXELがブート(LEDは点灯)しているが動作しない。
+解決方法：DYNAMIXEL Wizrd2.0を使用して再設定する。
+
+※根本的な原因は不明だが、OpenCRのスイッチを押してDYNAMXIELの動作確認をする時にまれに変更される場合がある。
+
+7. シミュレーションが動作しない
+解決方法：初回起動で時間がかかっている場合が多い。
+
+8. ビルドエラーが起きる。
+解決方法：必要なパッケージがインストールされていない。
+
+セットアップ手順をやり直す。
+
+https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup
+
+もしくはrosdepを使って依存関係を解決する。
+
+$ sudo apt-get install python-rosdep
+$ rosdep init
+$ rosdep update
+$ rosdep install -i --from-paths path-to-ros-package
+9. ノードを起動するとエラーが起きる。
+解決方法：必要なパッケージがインストールされていない。
+
+セットアップ手順をやり直す。
+
+https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup
+
+もしくはrosdepを使って依存関係を解決する。
+
+$ sudo apt-get install python-rosdep
+$ rosdep init
+$ rosdep update
+$ rosdep install -i --from-paths path-to-ros-package
+10. テレオペコマンドで前後逆に動作する。
+解決方法：DYNAMIXELが左右逆に取り付けられているため、ハードウェアを組み直す。
+
+https://emanual.robotis.com/docs/en/platform/turtlebot3/hardware_setup/#hardware-assembly
+
+11. ノードは起動するが動作しない。
+解決方法：PCとロボットの時刻がずれている。
+
+ntpdateを使って同期する。
+
+$ sudo apt-get install ntpdate
+$ sudo ntpdate ntp.ubuntu.com
+手動の場合は以下のコマンドで設定する。
+
+$ date -s "01/22 13:00:00 2021"
+12. ロボットモデルが読み込まれない。
+解決方法：ロボットモデルの設定を読み込み直す。
+
+$ export TURTLEBOT3_MODEL=burger
+13. ネットワークの設定はあっているが動作しない
+解決方法：.bashrcを読み込み直す。
+
+$ source ~/.bashrc
+※.bashrcは、ターミナルの起動時に読み込まれるので変更してから読み込み直さないと適応されない。
+
+14. ROSのコマンドが使えない。
+解決方法：ROSの環境設定を再度実施する。
+
+$ source /opt/ros/<distro>/setup.bash
+気づいた事
+セットアップの手順が抜けていて失敗するケースが多い。
+
+ネットワークの設定に失敗しているケースが多め。
+
+次回に向けて改善してた方がいいこと¶
+初期設定が想定通りに完了していることを確認する手順があるといい。
+
+その他
+セミナーの資料とセミナーで使用したコードをアップ
+https://drive.google.com/drive/folders/1Z-5v747b3DJ_q0wX1W8yYGJh5KfFktKi?usp=sharing
+
+コードは、以下にあるものと同様。
+https://github.com/igra9/rsj_seminar_2021_navigation.git
+コミットID：d6d679206fb7988a97be8e6db9d0c1091487b515
+
+セミナーの資料は、以下にあるものと同様。(1年ほどでサイトが消える可能性あり)
+https://igra9.github.io/ros_rsj_tutorial/obstacle-detection.html
+```
+
