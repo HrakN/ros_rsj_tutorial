@@ -16,7 +16,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 - 実習に利用するノート PC
   - Ubuntu Linux と ROS を事前にインストールしてください
   - インストール方法は以下を参考にしてください
-    - [Ubuntu LinuxとROSのインストール](linux_and_ros_install.md)
+    - [Ubuntu LinuxとROSのインストール](linux_and_ros_install.html)
 
 - 組み立て済み移動ロボット（各グループで1台以上）
   - Robotis社が提供している[TurtleBot3 burger](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)を利用します

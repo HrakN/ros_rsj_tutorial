@@ -2,7 +2,6 @@
 title: Ubuntu LinuxとROSのインストール
 date: 2021-01-12
 ---
-
 - Table of contents
 {:toc}
 
@@ -24,6 +23,8 @@ date: 2021-01-12
 
 ## リモートPCセットアップ
 
+*<span style="color: red">下記の手順に従わず、VirtualBoxやDockerなどの仮想環境をご自分で構築した上でセミナーへの参加もいただけますが、正常動作しない場合への対応はできかねますので自己責任にてお願いします。</span>*
+
 ### Ubuntu Linux のダウンロード
 
 下記URLから Ubuntu 18.04 64bit Desktopのインストールイメージ、`ubuntu-18.04.x-desktop-amd64.iso`(xはバージョン番号)をダウンロードします。
@@ -33,7 +34,7 @@ date: 2021-01-12
 * 本セミナーでは Ubuntu 18.04 64bit Desktop 版の使用を想定し、説明します
 * ネットワーク環境によっては、インストールイメージのリンクをクリック後、実際にダウンロード開始するまで、10分ほど必要な場合があるようです
   <!-- https://ubuntu-news.org/2021/09/17/ubuntu-18-04-6-lts-released/ -->
-   
+
    ![Ubuntu ダウンロード](images/seminar_no139/download_ubuntu18.04_0.png)
 
 
@@ -153,7 +154,7 @@ date: 2021-01-12
 $ sudo apt-get update
 $ sudo apt-get upgrade
 $ wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_melodic.sh
-$ chmod 755 ./install_ros_melodic.sh 
+$ chmod 755 ./install_ros_melodic.sh
 $ bash ./install_ros_melodic.sh
 ```
 
@@ -166,7 +167,7 @@ $ bash ./install_ros_melodic.sh
 <!-- the words above are described in https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup -->
 [公式ROS1Melodicインストールガイド](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
-<!-- 
+<!--
 **注釈**:  
  - ROBOTISのROSパッケージはMelodic Moreniaをサポートしていますが、TurtleBot3にはROS Kinetic Kameを使用することを推奨します。
  - ROSをMelodic Moreniaにアップグレードする場合は、サードパーティのROSパッケージが完全にサポートされていることを確認してください。
@@ -290,7 +291,7 @@ https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup
 
 
 <!-- ページ内リンクのおまじない -->
-<a id="tb3_wifi_settings"></a> 
+<a id="tb3_wifi_settings"></a>
 ### WiFiネットワーク設定を構成する
 
 1. TurtleBotの制御コンピュータであるRaspberry Pi(以下、SBC)を起動
@@ -306,7 +307,7 @@ https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup
    - アカウント "ubuntu"、パスワード "turtlebot"でログインします。
 
 1. 設定ファイルの修正
-  
+
    修正対象ファイルを開く。
 
    **`【SBCで実施】`**
@@ -330,7 +331,7 @@ https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup
 
 ### ROSのネットワーク設定
 SBCの再起動後、リモートPCのセットアップと同様([参照](#remotepc_wifi_settings))にSBCのIPアドレスを調べる（`wlan0`の箇所）。
-   
+
 **`【SBCで実施】`**
 ```shell
 $ ip address show
@@ -379,7 +380,7 @@ SBCでSSHを有効にする。
 $ sudo service ssh start
 $ sudo ufw allow ssh
 ```
- 
+
 リモートPCから、SBCに接続する。
 リモートPCにログインし、以下を入力する。
 
@@ -396,8 +397,14 @@ SBCに接続できれば、設定は問題なくできています。
 接続できない場合、
 - sshで指定しているIPアドレス、アカウント、パスワードに誤りがないか
 - リモートPCとSBCを同じwifiルーターに接続しているか
- 
+
 を確認してください。
+
+
+ *<span style="color: red"> ネットワーク接続はセミナー参加者の皆様の環境に大きく依存しますので、
+ ネットワークに接続できない、という旨の質問をいただいても回答が困難な場合が多いです。
+ 所属組織のネットワーク管理者の方に相談するなど、事前によくご確認ください。</span>*
+
 
 以上で、事前準備は終了です。
 
@@ -513,4 +520,3 @@ https://github.com/igra9/rsj_seminar_2021_navigation.git
 セミナーの資料は、以下にあるものと同様。(1年ほどでサイトが消える可能性あり)
 https://igra9.github.io/ros_rsj_tutorial/obstacle-detection.html
 ```
-
