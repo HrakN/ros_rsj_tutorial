@@ -196,8 +196,8 @@ $ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
 **`【リモートPCで実施】`**
 ```shell
 $ sudo apt-get install ros-melodic-dynamixel-sdk
-$ sudo apt-get install ros-melodic-turtlebot3-msgs
 $ sudo apt-get install ros-melodic-turtlebot3
+$ sudo apt-get install ros-melodic-turtlebot3-gazebo
 ```
 
 ### TurtleBot3モデル名を設定
