@@ -27,6 +27,7 @@ $ cd ~/catkin_ws/src/
 $ git clone https://github.com/igra9/rsj_seminar_2021_navigation.git
 $ cd ..
 $ catkin_make
+$ source ~/catkin_ws/devel/setup.bash
 ```
 
 シミュレーションを起動します。
@@ -46,9 +47,10 @@ Gazeboの画面が表示されるまでに待ちます。
 $ roslaunch turtlebot3_example turtlebot3_obstacle.launch
 ```
 
-このプログラムのソースコードが簡単な処理を行なっています。
+このプログラムのソースコードは以下の通りで、簡単な処理を行なっています。
 
 ```python
+#!/usr/bin/python
 import rospy
 import math
 from sensor_msgs.msg import LaserScan
@@ -127,24 +129,30 @@ def main():
 
 上記のプログラム（`/opt/ros/kinetic/lib/turtlebot3_example/turtlebot3_obstacle.py`あるいは`/home/user/catkin_ws/src/turtlebot3/turtlebot3_example/nodes/turtlebot3_obstacle.py`）を新しいファイルにコピーします。
 
-コピーした後にスクリプットの１行目に`!#/usr/bin/python`が書いてあることを確認します。
+コピーした後にスクリプトの１行目に`#!/usr/bin/python`が書いてあることを確認します。
 
-新しいROS packageを作成するか`rsj_seminar_2021_navigation`のパケージに追加します。
+新しいROS packageを作成するか`rsj_seminar_2021_navigation`のパッケージに追加します。
+
+`rsj_seminar_2021_navigation`のパッケージに追加する場合。
 ```shell
 $ cd ~/catkin_ws/src/rsj_seminar_2021_navigation
 $ mkdir src
 ```
-上記のフォルダーに作成したファイル`name.py`を保存します（適切に名前を変更してください）。
+上記の作成した`src`フォルダーに`name.py`でファイルを保存します（`name.py`は適切に名前を変更してください）。
 
-新しいパケージを作成するには（`package-name`がパケージ名を指定して適切に変更してください）：
+ファイルに実行権限を付与。
+```shell
+$ chmod u+x ~/catkin_ws/src/rsj_seminar_2021_navigation/src/name.py
+```
+新しいパッケージを作成する場合（`package-name`を指定して適切に変更してください）：
 ```shell
 $ cd ~/catkin_ws/src
 $ catkin_create_pkg package-name message_generation rospy sensor_msgs geometry_msgs
 $ cd package-name
-$ mkdir src
 ```
 上記のフォルダーに作成したファイルを保存します（拡張子はpyにします）。
 
+ファイルに実行権限を付与。
 ```shell
 $ chmod u+x ~/catkin_ws/src/package-name/src/name.py
 ```
@@ -160,6 +168,7 @@ catkin_install_python(PROGRAMS src/name.py
 ```shell
 $ cd ~/catkin_ws
 $ catkin_make
+$ source ~/catkin_ws/devel/setup.bash
 ```
 
 実行を確認します。
