@@ -40,7 +40,7 @@ SUMMARY
 ========
 
 PARAMETERS
- * /rosdistro: kinetic
+ * /rosdistro: melodic
  * /rosversion: 1.12.13
  * /turtlebot3_core/baud: 115200
  * /turtlebot3_core/port: /dev/ttyACM0
@@ -126,19 +126,20 @@ $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=karto
 Gmappingに関連するパッケージは、[事前準備](linux_and_ros_install.html＃ROS1 依存パッケージのインストール)ページですでにインストールされています。
 - `Cartographer`の場合:
 ```shell
-$ sudo apt-get install ros-kinetic-cartographer ros-kinetic-cartographer-ros \
-  ros-kinetic-cartographer-ros-msgs ros-kinetic-cartographer-rviz
+$ sudo apt-get install ros-melodic-cartographer ros-melodic-cartographer-ros \
+  ros-melodic-cartographer-ros-msgs ros-melodic-cartographer-rviz
 ```
 - `Hector Mapping`の場合:
 ```shell
-$ sudo apt-get install ros-kinetic-hector-mapping
+$ sudo apt-get install ros-melodic-hector-mapping
 ```
 - `Karto`の場合:
 ```shell
-$ sudo apt-get install ros-kinetic-slam-karto
+$ sudo apt-get install ros-melodic-slam-karto
 ```
-- `Frontier Exploration`の場合: <br>
-Frontier Explorationはgmappingを使用しており、次のパッケージをインストールする必要があります。
+- `Frontier Exploration`の場合 (kineticのみ): <br>
+  Frontier Explorationはgmappingを使用しており、次のパッケージをインストールする必要があります。 \
+  (melodicではパッケージが配布されていません。)
 ```shell
 $ sudo apt-get install ros-kinetic-frontier-exploration ros-kinetic-navigation-stage
 ```
@@ -179,7 +180,7 @@ Gmappingには、さまざまな環境のパフォーマンスを変更するた
 
 このチューニングガイドでは、重要なパラメーターを設定するためのヒントをいくつか紹介します。 環境に応じてパフォーマンスを変更したい場合は、このヒントが役立つ可能性があり、時間を節約できます。
 
-下記のパラメータのデフォルト値は`/opt/ros/kinetic/share/turtlebot3_slam/config/gmapping_params.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
+下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_slam/config/gmapping_params.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
 
 _**maxUrange**_ 
 - デフォルト値：3.0
