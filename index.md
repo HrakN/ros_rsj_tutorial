@@ -40,7 +40,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 
 ### ２日目（1/30(日) 10:00-16:00）
 
-|10:00-11:00|講義2 「Autonomous Navigation: from Small-sized Robots to Personal Mobility Vehicles」<br>講師：モラレス　ルイス (名古屋大学)|
+|10:00-11:00|講義2 「移動ロボットのための自己位置推定の基礎とその実装」<br>講師：赤井　直紀 (名古屋大学)|
 |11:00-12:00|[ROSを用いたマップ取得](slam-basics.html)|
 |12:00-13:00|昼休み|
 |13:00-14:30|[マップを利用したナビゲージョン操作１](map-navigation.html)|
