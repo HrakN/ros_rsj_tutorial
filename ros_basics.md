@@ -60,6 +60,8 @@ ROSでは、プログラムをビルドする際にcatkinというソフトウ�
 *今回はROSをインストールするために`install_ros_melodic.sh`を利用したのでワークスペースが自動的に作成されています。*{: style="color: red"}
 
 `install_ros_melodic.sh`を利用せず新しいワークスペースを作る場合、以下の手順となります。(今回は以下のコマンド入力は不要です)
+
+**`【リモートPCで実施】`**
 ```shell
 $ mkdir -p ~/catkin_ws/src
 $ cd ~/catkin_ws/src
@@ -81,6 +83,7 @@ src
 
 このディレクトリに、本作業用のパッケージをダウンロードします。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/garcia-g/rsj_seminar_no139_ros_basics.git
@@ -100,10 +103,11 @@ URLが分かれば上の手順だけで簡単にROSのパッケージが自分�
 では、次にパッケージのディレクトリ構成を確認します。<br>
 ダウンロードしているパッケージがバージョンアップされている場合などには、下記の実行例とファイル名が異なったり、ファイルが追加・削除されている場合があります。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/src/rsj_seminar_no139_ros_basics/
 $ ls
-CMakeLists.txt  launch  msg  package.xml  src
+CMakeLists.txt  LICENSE  launch  msg  package.xml  src
 $ ls launch/
 test.launch
 $ ls msg/
@@ -117,13 +121,14 @@ $
 このパッケージをビルドするために必要な情報が書かれています。<br>
 `launch`ディレクトリには、複数のノードでできたシステムの定義が、`msg`ディレクトリには、このパッケージ独自のデータ形式の定義が、`src`ディレクトリには、このパッケージに含まれるプログラム(ノード)のソースコードが含まれています。
 
-`catkin_make`コマンドで、ダウンとロードした`rsj_seminar_no139_ros_basics`パッケージを含む、ワークスペース全体をビルドします。`catkin_make`は、ワークスペースの最上位ディレクトリ(`~/catkin_ws/`)で行います。
+`catkin_make`コマンドで、ダウンロードした`rsj_seminar_no139_ros_basics`パッケージを含む、ワークスペース全体をビルドします。`catkin_make`は、ワークスペースの最上位ディレクトリ(`~/catkin_ws/`)で行います。
 
 ## ROSノードの理解とビルド・実行
 
-先作成したワークスペースを利用します。<br>
+さきほど作成したワークスペースを利用します。<br>
 ターミナルを開き、パッケージが正しく存在しているか確認します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/src/
 $ ls
@@ -240,7 +245,7 @@ int main(int argc, char **argv) {
 ROSのパラメータ設定機能の利用により、roslaunch（複数のノードを起動するためのツール）やGUIツールからもパラメータ設定を容易に行えます。
 
 パラメータの初期化が終わったら、データ送信のためのパブリッシャーを初期化します。<br>
-この変数の作成によりトピックが作成され、__このノードからデータの送信が可能になります。__{: style="color: red" } <br>
+この変数の作成によりトピックが作成され、__このノードからデータの送信が可能になります。__{:style="color: red" } <br>
 以下の引数を与えています。
 
 `"Publish"`
@@ -258,7 +263,7 @@ advertise関数についている`<rsj_seminar_no139_ros_basics::Text>`の部分
 `while(ros::ok())`で、メインの無限ループを回します（すなわちこのノードのメーンプロセッシングループです）。<br>
 `ros::ok()`を`while`の条件にすることで、ノードの終了指示が与えられたとき(`Ctrl+c`{: style="border: 1px solid black" } が押された場合も含む)には、ループを抜けて終了処理などが行えるようになっています。
 
-ループ中では、まず、`ros::spinOnce()`を呼び出して、ROSのメッセージを受け取る_{: style="color: red" } といった処理を行います。<br>
+ループ中では、まず、__`ros::spinOnce()`を呼び出して、ROSのメッセージを受け取る__{: style="color: red" } といった処理を行います。<br>
 `spinOnce()`は、その時点で届いているメッセージの受け取り処理を済ませた後、すぐに処理を返します。
 `spinOnce()`はこのシンプルなプログラムでは意味をなしません。というのは、トピック受信時に処理を行うコールバックを、ここでは定義していないためです。仮にこのアプリケーションにトピック受信処理機能を加えた場合、`spinOnce()`を行わなければコールバックが呼ばれないため、ここで加えておいた方がよいでしょう。<br>
 `rate.sleep()`は、先ほど初期化した実行周波数を維持するように`sleep`します。
@@ -284,6 +289,7 @@ ROS パッケージをビルドするためには、`catkin_make`コマンドを
 
 下記コマンドをターミナルで実行してみましょう。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/
 $ catkin_make
@@ -294,6 +300,7 @@ ROSシステムの実行の際、ROSを通してノード同士がデータを�
 
 1つ目のターミナルで下記を実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ roscore
 ```
@@ -307,6 +314,7 @@ ROSでワークスペースを利用するとき、ターミナルでそのワ�
 
 2つ目のターミナルで下記を実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/
 $ rosrun rsj_seminar_no139_ros_basics publish
@@ -319,6 +327,7 @@ $ rosrun rsj_seminar_no139_ros_basics publish
 ノードを実行した2つ目のターミナル（__注意：`roscore`のターミナルではなくて__{: style="color: red" } ）に `Ctrl+c`{: style="border: 1px solid black" } を入力してノードを終了します。<br>
 そして以下を実行してください。
 
+**`【リモートPCで実施】`**
 ```shell
 $ rosrun rsj_seminar_no139_ros_basics publish \
   _message:=test-2 _date:=today
@@ -394,12 +403,14 @@ msgはクラスへのポインタなので「-&gt;」を用い、以降はクラ
 作成したノードを実行してみましょう。<br>
 1つ目のターミナルで以下を実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ roscore
 ```
 
 そして2つ目のターミナルで以下を実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/
 $ rosrun rsj_seminar_no139_ros_basics publish
@@ -408,6 +419,7 @@ $ rosrun rsj_seminar_no139_ros_basics publish
 
 最後に、3番目のターミナルを開いて、下記を実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/
 $ rosrun rsj_seminar_no139_ros_basics show
@@ -474,6 +486,7 @@ launchファイルは、ノードやパラメータの組み合わせを定義�
 開いているターミナルに`roscore`や起動中のノードをすべて `Ctrl+c`{: style="border: 1px solid black" } で停止します。<br>
 その後、いずれか１つのターミナルで以下を実行します。
 
+**`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws
 $ roslaunch rsj_seminar_no139_ros_basics test.launch
@@ -492,7 +505,7 @@ PARAMETERS
  * /publisher/date: January 29
  * /publisher/message: Test seminar
  * /rosdistro: melodic
- * /rosversion: 1.14.12
+ * /rosversion: 1.14.9
 
 NODES
   /
@@ -501,8 +514,10 @@ NODES
 
 ROS_MASTER_URI=http://localhost:11311
 
-process[publisher-1]: started with pid [13166]
-process[show-2]: started with pid [13179]
+process[rosout-1]: started with pid [18496]
+started core service [/rosout]
+process[publisher-2]: started with pid [18499]
+process[show-3]: started with pid [18501]
 Test seminar January 29
 Test seminar January 29
 ```
