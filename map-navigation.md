@@ -103,7 +103,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 下記のパラメータのデフォルト値は`/opt/ros/kinetic/share/turtlebot3_navigation/param/costmap_common_param_burger.yaml`のファイルに定義されています。下記のようなコマンドで設定することができます。`parameter_name`に変更したいパラメータ名に書き換え、`x`に新しい値に書き換えます。
 
 ```shell
-$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml parameter_name:=x
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_sim.yaml parameter_name:=x
 ```
 
 _**inflation_radius**_
