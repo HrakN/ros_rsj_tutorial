@@ -30,10 +30,10 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 ### １日目（1/29(土) 10:00-17:00）
 
 |10:00-10:30|セミナーの進行につきまして|
-|10:30-12:00|[セミナー環境の確認](linux_basics.md)とROSの基本操作 |
+|10:30-12:00|[セミナー環境の確認とLinuxの基本操作](linux_basics.html)と[ROSの基本操作](ros_basics.html) |
 |12:00-13:00|昼休み |
 |13:00-14:00|講義1 「自己位置推定ROSパッケージの作り方」<br>講師：上田　隆一 (千葉工業大学)|
-|14:00-17:00|移動ロボットの動作確認 |
+|14:00-17:00|[移動ロボットの動作確認](turtlebot-basics.html) |
 
 <!--|15:00-16:30|[ROSを用いたマップ取得](slam-basics.html)|-->
 <!--|15:00-16:30|[ROS Navigationの利用](ros-navigation.html)|-->
@@ -61,11 +61,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 
 1. [Ubuntu LinuxとROSのインストール](linux_and_ros_install.html)
 
-1. [セミナー環境の確認](linux_basics.html)
-
-
-<!--
-1. [Linux の基本操作](linux_basics.html)
+1. [セミナー環境の確認とLinuxの基本操作](linux_basics.html)
 
 1. [ROSの基本操作](ros_basics.html)
 
@@ -78,7 +74,6 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 1. [マップを利用したナビゲージョン操作２](map-navigation-2.html)
 
 1. [障害物認識と回避](obstacle-detection.html)
- -->
 
 ## 参考情報
 

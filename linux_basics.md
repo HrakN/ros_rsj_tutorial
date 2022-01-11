@@ -15,20 +15,22 @@ date: 2021-01-23
 ![Terminal](images/terminal-icon.png)
 
 新規インストールしたばかりのUbuntuであれば、画面左のランチャーに端末が表示されません。<br>
-画面左のランチャーにある「コンピュータを検索」をクリックして、「terminal」または「端末」を入力してください。
+画面左上にある「Activities」をクリックします。
 
-![Computer search](images/ubuntu_computer_search_icon.png)
+![Computer search](images/seminar_no139/basics_activity.png)
 
-![Finding the terminal](images/ubuntu_find_terminal.png)
+検索のための入力エリアが表示されるので、その入力エリアに「terminal」または「端末」を入力してください。
 
-「端末」を選択してターミナルを起動します。
+![Finding the terminal](images/seminar_no139/basics_terminal.png)
 
-![Ubuntu terminal](images/ubuntu_started_terminal.png)
+「Terminal」または「端末」を選択すると、以下のようにターミナルが起動します。
+
+![Ubuntu terminal](images/seminar_no139/basics_open_terminal.png)
 
 ランチャーにターミナルを登録し、検索せずに起動できるようにします。<br>
-ランチャー内の端末のアイコンを右クリックし、「Launcherに登録」を選択します。
+ランチャー内の端末のアイコンを右クリックし、「Add to Favorites」を選択します。
 
-![Ubuntu add terminal to launcher](images/ubuntu_add_terminal_to_launcher.png)
+![Ubuntu add terminal to launcher](images/seminar_no139/basics_favorite.png)
 
 画面左のランチャーにある「端末」アイコンをクリックするとターミナルが起動します。
 
@@ -38,7 +40,7 @@ date: 2021-01-23
 ubuntu@ubuntu:~$
 ```
 
-これは、__ユーザID__@__コンピュータ名__:__現在のディレクトリ__$」を表しており、 __現在のディレクトリ__ 欄の「~」(チルダ)は、現在のユーザのホームディレクトリを表します。
+これは、__ユーザID__@__コンピュータ名__:__現在のディレクトリ__$」を表しており、 __現在のディレクトリ__ 欄の「~」(チルダ)は、現ユーザのホームディレクトリを表します。
 
 ## ディレクトリ操作 (ls, cd コマンド)
 
@@ -46,12 +48,11 @@ ubuntu@ubuntu:~$
 
 ```shell
 ubuntu@ubuntu:~$ ls
-examples.desktop Desktop  Documents  Downloads  Music  Pictures Public Templates
-Videos
+catkin_ws examples.desktop Desktop  Documents  Downloads  Music  Pictures Public Templates Videos
 ubuntu@ubuntu:~$
 ```
 
-（各ディレクトリは日本語に出ることもあります。）
+（各ディレクトリは日本語で表示されること場合があります。）
 
 現在のディレクトリは、cdコマンドで移動できます。<br>
 以下のように、cdコマンド実行後、 __現在のディレクトリ__ 欄が変化していることが確認できます。
@@ -76,7 +77,7 @@ ubuntu@ubuntu:~/Downloads$ cd
 ubuntu@ubuntu:~$
 ```
 
-以降、セミナー中で入力するコマンドや実行結果は、ユーザID、コンピュータ名、ディレクトリを省略し、下記のように表記します。
+以降、コマンド入力など端末を使用する場合、通常は表示される、ユーザID、コンピュータ名、ディレクトリは省略し、下記のように表記します。
 
 ```shell
 $ ls
@@ -89,8 +90,8 @@ $
 
 指定した名前のディレクトリを作成します。
 
-以下の例では、テンポラリディレクトリ(`/tmp/`)に、`test-directory`という名前のディレクトリを作成します。<br>
-(テンポラリディレクトリは終了時にクリアされて空になります。)
+以下の例では、テンポラリディレクトリ(`/tmp/`)に、`test-directory`という名前のディレクトリを作成します。ただし、すでに同名のディレクトリが存在する場合、エラーが発生します。<br>
+(テンポラリディレクトリはPCシャットダウン時にクリアされて空になります。)
 
 ```shell
 $ cd /tmp/
@@ -101,10 +102,10 @@ $ ls
 ...  test-directory
 ```
 
-## タブ補完
+## Tabキーを用いたコマンド補完
 
-Linuxの端末でコマンドを入力する際、途中まで入力した後に `Tab`{: style="border: 1px solid black" } キーを押すと、可能な場合には、自動的に続きを入力してくれます。<br>
-続きが出てこない場合は、もう少し先まで入力してから再度トライしましょう。
+Linuxの端末でコマンドを入力する際、途中まで入力した後に `Tab`{: style="border: 1px solid black" } キーを押すと、可能な場合には、自動的にコマンドを補完してくれます。<br>
+補完されない場合、もう少しコマンドを入力してから`Tab`{: style="border: 1px solid black" } キーを押すと、補完されることがあります。
 
 ```shell
 $ cd ~/M [Tab]
@@ -135,10 +136,10 @@ $
 ```shell
 $ cd
 $ ls
-examples.desktop _Desktop_  Documents  Downloads  Music  Pictures Public Templates
-Videos
-[選択して Ctrl+Shift+c]
+examples.desktop  Desktop  Documents  Downloads  Music  Pictures Public Templates Videos
+["Desktop"を選択して Ctrl+Shift+c]
 $ cd [Ctrl+Shift+v]
+   ↓
 $ cd Desktop
 ```
 
@@ -149,16 +150,17 @@ $ cd Desktop
 ```shell
 $ cd
 $ ls
-examples.desktop _Desktop_  Documents  Downloads  Music  Pictures Public Templates
+examples.desktop  Desktop  Documents  Downloads  Music  Pictures Public Templates
 Videos
-$ cd [選択して中クリック]
+$ cd ["Descktop"を選択して中クリック]
+   ↓
 $ cd Desktop
 ```
 
 ## ターミナルを複数開く
 
 ロボットのプログラムを実行する際、複数のターミナルウインドウを使って操作する場合があります。<br>
-`Ctrl+Shift+n`{: style="border: 1px solid black" }で新しいウインドウを、`Ctrl+Shift+t`{: style="border: 1px solid black" }で新しいタブを開くことができます。
+事前に端末をクリックするなどして端末をアクティブにし、`Ctrl+Shift+n`{: style="border: 1px solid black" }で新しいウインドウを、`Ctrl+Shift+t`{: style="border: 1px solid black" }で新しいタブを開くことができます。
 
 ## コマンドの履歴
 
@@ -171,4 +173,4 @@ $ [上下キー]
 <button type="button" class="bth btn-primary btn-lg">[
     <span style="color:black">**メインページへ**</span>](index.html)</button>
 <button type="button"  class="bth btn-success btn-lg">
-    [<span style="color:black">**次の実習へ**</span>](ros_basics.html)</button>
+    [<span style="color:black">**次の実習へ**</span>](ros_basics.md)</button>
