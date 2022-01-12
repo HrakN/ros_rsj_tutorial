@@ -501,22 +501,4 @@ $ source ~/.bashrc
 解決方法：ROSの環境設定を再度実施する。
 
 $ source /opt/ros/<distro>/setup.bash
-気づいた事
-セットアップの手順が抜けていて失敗するケースが多い。
-
-ネットワークの設定に失敗しているケースが多め。
-
-次回に向けて改善してた方がいいこと¶
-初期設定が想定通りに完了していることを確認する手順があるといい。
-
-その他
-セミナーの資料とセミナーで使用したコードをアップ
-https://drive.google.com/drive/folders/1Z-5v747b3DJ_q0wX1W8yYGJh5KfFktKi?usp=sharing
-
-コードは、以下にあるものと同様。
-https://github.com/igra9/rsj_seminar_2021_navigation.git
-コミットID：d6d679206fb7988a97be8e6db9d0c1091487b515
-
-セミナーの資料は、以下にあるものと同様。(1年ほどでサイトが消える可能性あり)
-https://igra9.github.io/ros_rsj_tutorial/obstacle-detection.html
 ```
