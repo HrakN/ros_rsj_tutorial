@@ -84,6 +84,13 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ![リモートPCのROS_MASTER_URI/ROS_HOSTNAME設定](images/seminar_no139/turtlebot_basics_remotepc_rosenv.png)
 
 
+さきほど修正した設定を反映するため、以下を実行します。 (~/.bashrcの修正により、今後、新規にターミナルを開いた時は自動で設定が反映されます)
+
+**`【リモートPCで実施】`**
+``` bash
+$ source ~/.bashrc
+```
+
 ### TurtleBotをリモートPCで表示
 
 <div style="counter-reset: h1 6"></div>
@@ -126,12 +133,12 @@ TurtleBot3のアプリケーションを起動するための基本的なパッ�
 **`【リモートPCで実施】`**
 ```shell
 username@pc_name:~$ ssh ubuntu@192.168.YY.YY
-turtlebot@192.168.YY.YY’s password:
+ubuntu@192.168.YY.YY’s password:
 
 ...
 
 Last login: [曜日] [月] [日] XX:XX:XX 2022 from 192.168.XX.XX
-turtlebot@turtlebot:~$
+ubuntu@ubuntu:~$
 ```
 
 **`【リモートPCからログインしたSBCで実施】`**
@@ -142,13 +149,15 @@ $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
 以下のようなメッセージが表示されます。
 (IPアドレスなどは環境によって異なる可能性があります)
 
+もし、メッセージが全く表示されない場合は、リモートPCおよび、SBCの`ROS_MASTER_URI`、`ROS_HOSTNAME`のIPアドレス設定が正しいか確認ください。
+
 ```shell
 SUMMARY
 ========
 
 PARAMETERS
- * /rosdistro: kinetic
- * /rosversion: 1.12.13
+ * /rosdistro: melodic
+ * /rosversion: 1.14.10
  * /turtlebot3_core/baud: 115200
  * /turtlebot3_core/port: /dev/ttyACM0
  * /turtlebot3_core/tf_prefix:
@@ -290,15 +299,19 @@ TurtleBot3のアプリケーションを起動するために開いたターミ�
 
 **`【リモートPCからログインしたSBCで実施】`**
 ```shell
-turtlebot@turtlebot:~$ exit
+ubuntu@ubuntu:~$ exit
 username@pc_name:~$
 ```
 
-### Topicのモニタ(ご参考)
+---
+### ご参考
+rosノードが実行中にTopicを可視化するツールを紹介します。デバッグなどに役立ちます。
+
+#### Topicのモニタ
 TurtleBot3のトピックを確認するために、ROSが提供するrqtを使用します。
 rqtはすべてのトピックを表示することで、トピックのステータスを簡単に確認できるようにするツールです。
 
-`roscore`が動作していることを確認後、以下のコマンドを使用して、PCからrqtを実行します。トピックモニターウィンドウが表示されない場合は、`plugin`{: style="border: 1px solid black" }->`Topics`{: style="border: 1px solid black" }->`Topic Monitor`{: style="border: 1px solid black" }を選択します。
+`roscore`が動作していることを確認後、以下のコマンドを使用して、リモートPCからrqtを実行します。トピックモニターウィンドウが表示されない場合は、`plugin`{: style="border: 1px solid black" }->`Topics`{: style="border: 1px solid black" }->`Topic Monitor`{: style="border: 1px solid black" }を選択します。
 
 **`【リモートPCで実施】`**
 ```shell
@@ -323,6 +336,25 @@ $ rqt
 ![topic monitor battery state](images/seminar_no139/turtlebot_basics_topic_monitor_battery_state.png)
 
 このようにrqtでトピックを表示することで、デバッグなどへの活用が可能となります。
+
+#### Topicとノードの関係
+
+TurtleBot3のトピックとノードの関係を可視化するには、rqt_graphを使用します。
+rqt_graphは各ノードがpublish/subscribeするトピックをグラフ表示します。
+
+`roscore`が動作していることを確認後、以下のコマンドを使用してリモートPCからrqt_graphを実行します。
+各ノードとトピックの関係が表示されない場合は、左上のコンボボックスから、`Nodes/Topics(all)`を選択します。
+
+**`【リモートPCで実施】`**
+```shell
+$ rqt_graph
+```
+(起動時にターミナルにERRORが表示されることがありますが、rqt_graphは起動するようです)
+
+<br>
+
+以下のように、ノードは円、トピックは矩形に囲まれて表示されます。
+![rqt_grah](images/seminar_no139/turtlebot_basics_rqt_graph.png)
 
 <button type="button" class="bth btn-primary btn-lg">[
     <span style="color:black">**メインページへ**</span>](index.html)</button>

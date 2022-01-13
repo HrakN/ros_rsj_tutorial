@@ -91,6 +91,20 @@ $ ls
 CMakeLists.txt  rsj_seminar_no139_ros_basics
 $
 ```
+**注釈**："fatal: unable to access 'https://github.com/garcia-g/rsj_seminar_no139_ros_basics.git/': gnutls_handshake() failed: An unexpected TLS packet was received."
+
+のようなエラーが発生した場合、gitに対するプロキシサーバの設定が誤っている可能性があります。以下のコマンドで設定可能です。
+
+**`【リモートPCで実施】`**
+```shell
+$ git config --global http.proxy http://<my_proxy>:<my_port>
+$ git config --global https.proxy https://<my_proxy>:<my_port>
+```
+
+
+{: .notice--info}
+
+<br>
 
 gitは、ソースコードなどの変更履歴を記録して管理する分散型バージョン管理システムと呼ばれるものです。<br>今回のセミナーでは詳細は触れませんが、研究開発を行う上では非常に有用なシステムですので、利用をお勧めします。<br>公式の解説書、[Pro Git](https://git-scm.com/book/ja/v2")などを参考にして下さい。
 
