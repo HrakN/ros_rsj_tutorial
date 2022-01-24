@@ -287,7 +287,7 @@ $ source ~/.bashrc
 
  3.2.1 "microSDカードとリーダーを準備する" ～ 3.2.4.2 "ディスクユーティリティ" まで実施ください。
 
-https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup
+![](https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/#sbc-setup)
 
 
 <!-- ページ内リンクのおまじない -->

@@ -273,7 +273,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
   CTRL-C to quit
 ```
 
-ロボットを床においてrvizの画面とロボットを確認しながらキーボードでロボットを動かしてみましょう。
+**ロボットを床において**rvizの画面とロボットを確認しながらキーボードでロボットを動かしてみましょう。
 
 動作確認が終わりましたら一旦全てのノードを終了させます。
 下記のコマンドで`roscore`以外のノードを終了させることができます。
@@ -354,6 +354,7 @@ $ rqt_graph
 <br>
 
 以下のように、ノードは円、トピックは矩形に囲まれて表示されます。
+
 ![rqt_grah](images/seminar_no139/turtlebot_basics_rqt_graph.png)
 
 <button type="button" class="bth btn-primary btn-lg">[
