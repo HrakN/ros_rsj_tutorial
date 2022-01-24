@@ -282,6 +282,7 @@ $ source ~/.bashrc
 
 
 139回ロボット工学セミナー経由で実習キットを購入された方は、付属のSDカードに適切なイメージが記録されているので、下の[WiFiネットワーク設定を構成する](#tb3_wifi_settings)から実施ください。
+また、[TurtleBot3 Burger RSJ工学セミナー S139クイックスタートページ](https://e-shop.robotis.co.jp/page/tb3_rsj_s139)もあわせて御覧ください。
 
 もし、お持ちのTurtleBot3 BurgerにROS Melodicがインストールされていない場合、以下のHPより、Raspberry PiにROS Melodicのインストールを実施する必要があります。(画面上部のROSバージョン選択箇所において、'Melodic'を選択ください)
 

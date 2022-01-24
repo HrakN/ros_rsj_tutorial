@@ -78,6 +78,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 ## 参考情報
 
 - [日本ロボット学会 第139回 ロボットの作り方 申し込みページ](https://www.rsj.or.jp/event/seminar/news/2021/s139.html)
+- [TurtleBot3 Burger RSJ工学セミナー S139クイックスタートページ](https://e-shop.robotis.co.jp/page/tb3_rsj_s139)
 - [ROS Japan UG （日本ユーザ会）](https://rosjp.connpass.com/)
 - [ROS メッセージボード](https://discourse.ros.org/)
 - [ROS Answers](http://answers.ros.org/)（日本語でも大丈夫です）
