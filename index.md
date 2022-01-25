@@ -29,7 +29,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 
 ### １日目（1/29(土) 10:00-17:00）
 
-|10:00-10:30|セミナーの進行につきまして|
+|10:00-10:30|[セミナーの進行につきまして](introduction.html) |
 |10:30-12:00|[セミナー環境の確認とLinuxの基本操作](linux_basics.html)と[ROSの基本操作](ros_basics.html) |
 |12:00-13:00|昼休み |
 |13:00-14:00|講義1 「自己位置推定ROSパッケージの作り方」<br>講師：上田　隆一 (千葉工業大学)|
@@ -78,6 +78,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 ## 参考情報
 
 - [日本ロボット学会 第139回 ロボットの作り方 申し込みページ](https://www.rsj.or.jp/event/seminar/news/2021/s139.html)
+- [TurtleBot3 Burger RSJ工学セミナー S139クイックスタートページ](https://e-shop.robotis.co.jp/page/tb3_rsj_s139)
 - [ROS Japan UG （日本ユーザ会）](https://rosjp.connpass.com/)
 - [ROS メッセージボード](https://discourse.ros.org/)
 - [ROS Answers](http://answers.ros.org/)（日本語でも大丈夫です）
