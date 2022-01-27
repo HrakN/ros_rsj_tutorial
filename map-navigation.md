@@ -50,7 +50,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 $ rosrun map_server map_saver -f ~/map_sim
 ```
 
-Slamノードを起動しているターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押してプログラムを終了させます。
+SLAMノードを起動しているターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押してプログラムを終了させます。
 
 ## ナビゲーションノードの実行
 
