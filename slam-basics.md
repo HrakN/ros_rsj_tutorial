@@ -1,6 +1,6 @@
 ---
 title: ROSを用いたマップ取得
-date: 2020-01-23
+date: 2022-01-27
 ---
 
 # ROSを用いたマップ取得
@@ -8,11 +8,11 @@ date: 2020-01-23
 - Table of contents
 {:toc}
 
-**SLAM（Simultaneous Localization and Mapping）**は、任意の空間の現在位置を推定して地図を描く手法です。 SLAMは、TurtleBotの前身からよく知られている機能です。
+**SLAM（Simultaneous Localization and Mapping）**は任意の空間の現在位置を推定して地図を描く手法です。 SLAMはTurtleBot3の前身からよく知られている機能です。
 
 ## TurtleBot3を起動
 
-roscoreを実行します。
+`roscore`を実行します。
 
 ``` bash
 $ roscore
@@ -123,7 +123,7 @@ $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=karto
 {% capture notice_04 %}
 **注釈**: SLAMパッケージの依存関係パッケージをインストールします
 - `Gmapping`の場合: <br>
-Gmappingに関連するパッケージは、[事前準備](linux_and_ros_install.html＃ROS1 依存パッケージのインストール)ページですでにインストールされています。
+Gmappingに関連するパッケージは、[事前準備](linux_and_ros_install.html#ros-依存パッケージのインストール)ページですでにインストールされています。
 - `Cartographer`の場合:
 ```shell
 $ sudo apt-get install ros-melodic-cartographer ros-melodic-cartographer-ros \
@@ -273,7 +273,7 @@ ROSコミュニティでよく使用されている2次元の `Occupancy Grid Ma
 
 ## 全てのプログラムを終了
 
-<!--`Slam`と`Teleop`のノードを終了させます。<br>
+<!--`SLAM`と`Teleop`のノードを終了させます。<br>
 それぞれのターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押します。-->
 
 ```shell
@@ -292,7 +292,7 @@ done
 username@pcname:~/catkin_ws$
 ``` 
 
-TurtleBot33のアプリケーションを起動するために開いたターミナルで`exit`を記入し、`Enter`{: style="border: 1px solid black" }キーを押すと接続を切断します。
+TurtleBot3のアプリケーションを起動するために開いたターミナルで`exit`を記入し、`Enter`{: style="border: 1px solid black" }キーを押すと接続を切断します。
 
 ```shell
 turtlebot@turtlebot:~$ exit
