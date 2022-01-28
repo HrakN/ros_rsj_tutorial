@@ -127,7 +127,7 @@ def main():
         pass
 ```
 
-上記のプログラム（`/opt/ros/kinetic/lib/turtlebot3_example/turtlebot3_obstacle.py`あるいは`/home/user/catkin_ws/src/turtlebot3/turtlebot3_example/nodes/turtlebot3_obstacle.py`）を新しいファイルにコピーします。
+上記のプログラム（`/opt/ros/melodic/lib/turtlebot3_example/turtlebot3_obstacle.py`あるいは`/home/user/catkin_ws/src/turtlebot3/turtlebot3_example/nodes/turtlebot3_obstacle.py`）を新しいファイルにコピーします。
 
 コピーした後にスクリプトの１行目に`#!/usr/bin/python`が書いてあることを確認します。
 
@@ -207,7 +207,7 @@ If you want to close, insert 's'
 
 **課題** 上記のプログラムを参考しながら指定したポイントまで障害物を回避しながらロボットを移動させます。
 
-`turtlebot3_pointtop_key.py`は　`/opt/ros/kinetic/lib/turtlebot3_example/`にあります。
+`turtlebot3_pointtop_key.py`は　`/opt/ros/melodic/lib/turtlebot3_example/`にあります。
 
 
 <button type="button" class="bth btn-primary btn-lg">[
