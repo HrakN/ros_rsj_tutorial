@@ -65,7 +65,7 @@ title: 日本ロボット学会　ロボットの作り方 ～移動ロボット
 
 1. [ROSの基本操作](ros_basics.html)
 
-1. [Turtlebot3の基本操作](turtlebot-basics.html)
+1. [移動ロボットの動作確認](turtlebot-basics.html)
 
 1. [ROSを用いたマップ取得](slam-basics.html)
 

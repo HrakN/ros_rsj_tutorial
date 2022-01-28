@@ -10,7 +10,7 @@ date: 2020-01-23
 
 基本的なROS上で移動ロボットの操作方法を学習します。
 
-TurtleBot3のモデル名を指定する必要があります。
+***TurtleBot3のモデル名を指定する必要があります。***
 
 **`【リモートPCで実施】`**
 ``` bash
@@ -18,9 +18,9 @@ $ echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-## シミュレーションでTurtleBotを操作
+## シミュレーションでTurtleBot3を操作
 
-シミュレーション環境をインストールします。
+***シミュレーション環境をインストールします。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -30,7 +30,7 @@ $ cd ..
 $ catkin_make
 ```
 
-シミュレーションを起動します。
+***シミュレーションを起動します。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -48,7 +48,7 @@ TurtleBot3は、さまざまな機器での遠隔操作が可能です。PS3、 
 
 簡易的な遠隔操作のテストを行うために`turtlebot3_teleop_key`ノードを起動します。
 
-**新しいターミナルウィンドウを開き**、以下のコマンドを入力します。
+***新しいターミナルウィンドウを開き、以下のコマンドを入力します。***
 
 **`【リモートPCで実施】`**
 ``` bash
@@ -72,19 +72,19 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
   CTRL-C to quit
 ```
 
-シミュレータの画面を見ながらそれぞれのキーを押してロボットがどう動くか確認しましょう。
+***シミュレータの画面を見ながらそれぞれのキーを押してロボットがどう動くか確認しましょう。***
 
-シミュレータと`turtlebot3_teleop_key`を起動したターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押すとプログラムが終了します。
+***シミュレータと`turtlebot3_teleop_key`を起動したターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押すとプログラムが終了します。***
 
 
-## 実際のTurtleBotを操作
+## 実際のTurtleBot3を操作
 
-<span style="color:red">下記の実習を行うために、まず`ROS_MASTER_URI`と`ROS_HOSTNAME`の`localhost`をリモートPCのIPアドレスに変更します。(下図参照)</span>
+***下記の実習を行うために、まず`ROS_MASTER_URI`と`ROS_HOSTNAME`の`localhost`をリモートPCのIPアドレスに変更します。(下図参照)***
 
 ![リモートPCのROS_MASTER_URI/ROS_HOSTNAME設定](images/seminar_no139/turtlebot_basics_remotepc_rosenv.png)
 
 
-さきほど修正した設定を反映するため、以下を実行します。 (~/.bashrcの修正により、今後、新規にターミナルを開いた時は自動で設定が反映されます)
+***さきほど修正した設定を反映するため、以下を実行します。 (~/.bashrcの修正により、今後、新規にターミナルを開いた時は自動で設定が反映されます)***
 
 **`【リモートPCで実施】`**
 ``` bash
@@ -97,7 +97,7 @@ $ source ~/.bashrc
 
 {% capture notice_01 %}
 **警告**：
-1. TurtleBot側のPC上で roscore を **実行しないでください。**
+1. TurtleBot3側のPC上で roscore を **実行しないでください。**
 2. 各デバイスのIPアドレスが正しく設定されているかどうかを確認してください。
 3. バッテリー電圧が11V以下になるとブザーアラームが鳴り続け、アクチュエータが作動しなくなります。ブザーアラームが鳴った場合は、バッテリーを充電する必要があります。
 {% endcapture %}
@@ -109,7 +109,7 @@ $ source ~/.bashrc
 **注釈**：ターミナルアプリは、画面左上の"Activities"から検索することが出来ます。ターミナルのショートカットキーは、`Ctrl+Alt+t`{: style="border: 1px solid black" }です。
 {: .notice--info}
 
-**リモートPCで：** roscoreを実行します。
+***リモートPCで roscoreを実行します。***
 
 **`【リモートPCで実施】`**
 ``` bash
@@ -120,11 +120,11 @@ $ roscore
 
 TurtleBot3のアプリケーションを起動するための基本的なパッケージを起動します。
 
-新しいターミナルウィンドウを開き、TurtleBotの制御コンピュータ(SBC)にログインします。
+***新しいターミナルウィンドウを開き、TurtleBot3の制御コンピュータ(SBC)にログインします。***
 
 **`【リモートPCで実施】`**
 ```shell
-  ssh ubuntu@192.168.YY.YY (The IP 192.168.YY.YY is your Raspberry Pi’s IP or hostname)
+$ ssh ubuntu@192.168.YY.YY (The IP 192.168.YY.YY is your Raspberry Pi’s IP or hostname)
 ```
 パスワードは**turtlebot**です。(変更している場合は適宜読み替えてください)
 
@@ -132,14 +132,15 @@ TurtleBot3のアプリケーションを起動するための基本的なパッ�
 
 **`【リモートPCで実施】`**
 ```shell
-username@pc_name:~$ ssh ubuntu@192.168.YY.YY
+$ ssh ubuntu@192.168.YY.YY
 ubuntu@192.168.YY.YY’s password:
 
 ...
 
 Last login: [曜日] [月] [日] XX:XX:XX 2022 from 192.168.XX.XX
-ubuntu@ubuntu:~$
+$
 ```
+***SBCへのログイン後、以下を実行します。***
 
 **`【リモートPCからログインしたSBCで実施】`**
 ``` bash
@@ -220,14 +221,15 @@ process[turtlebot3_diagnostics-3]: started with pid [14200]
 #### Rviz上でTurtleBot3をロードする
 
 **リモートPCで** robot state publisherとRVizを実行します。
-新しいターミナルウィンドウを開き、以下のコマンドを入力します。
+
+***新しいターミナルウィンドウを開き、以下のコマンドを入力します。***
 
 **`【リモートPCで実施】`**
 ``` bash
 $ roslaunch turtlebot3_bringup turtlebot3_remote.launch
 ```
 
-新しいターミナルウィンドウを開き、以下のコマンドを入力します。   
+***新しいターミナルウィンドウを開き、以下のコマンドを入力します。***
 
 **`【リモートPCで実施】`**
 ```bash
@@ -249,7 +251,7 @@ $ rosrun rviz rviz -d `rospack find turtlebot3_description`/rviz/model.rviz
 
 シミュレーションと同様に`turtlebot3_teleop_key`ノードを起動します。
 
-**リモートPCで**新しいターミナルウィンドウを開き、以下のコマンドを入力します。
+***リモートPCで新しいターミナルウィンドウを開き、以下のコマンドを入力します。***
 
 **`【リモートPCで実施】`**
 ``` bash
@@ -273,14 +275,15 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
   CTRL-C to quit
 ```
 
-**ロボットを床において**rvizの画面とロボットを確認しながらキーボードでロボットを動かしてみましょう。
+***ロボットを床においてrvizの画面とロボットを確認しながらキーボードでロボットを動かしてみましょう。***
 
 動作確認が終わりましたら一旦全てのノードを終了させます。
-下記のコマンドで`roscore`以外のノードを終了させることができます。
+
+***下記のコマンドで`roscore`以外のノードを終了させることができます。***
 
 **`【リモートPCで実施】`**
 ```shell
-rosnode kill -a
+$ rosnode kill -a
 ```
 
 `roscore`を終了させるのに`roscore`を起動しているターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押します。
@@ -292,15 +295,15 @@ rosnode kill -a
 shutting down processing monitor ...
 ... shutting down processing monitor complete
 done
-username@pcname:~/catkin_ws$
+$
 ```
 
-TurtleBot3のアプリケーションを起動するために開いたターミナルで`exit`を記入し、`Enter`{: style="border: 1px solid black" }キーを押すと接続を切断します。
+***TurtleBot3のアプリケーションを起動するために開いたターミナルで`exit`を記入し、`Enter`{: style="border: 1px solid black" }キーを押すと接続を切断します。***
 
 **`【リモートPCからログインしたSBCで実施】`**
 ```shell
-ubuntu@ubuntu:~$ exit
-username@pc_name:~$
+$ exit
+$  (リモートPCのシェル)
 ```
 
 ---
@@ -311,7 +314,9 @@ rosノードが実行中にTopicを可視化するツールを紹介します。
 TurtleBot3のトピックを確認するために、ROSが提供するrqtを使用します。
 rqtはすべてのトピックを表示することで、トピックのステータスを簡単に確認できるようにするツールです。
 
-`roscore`が動作していることを確認後、以下のコマンドを使用して、リモートPCからrqtを実行します。トピックモニターウィンドウが表示されない場合は、`plugin`{: style="border: 1px solid black" }->`Topics`{: style="border: 1px solid black" }->`Topic Monitor`{: style="border: 1px solid black" }を選択します。
+***`roscore`が動作していることを確認後、以下のコマンドを使用して、リモートPCからrqtを実行します。***
+
+トピックモニターウィンドウが表示されない場合は、`plugin`{: style="border: 1px solid black" }->`Topics`{: style="border: 1px solid black" }->`Topic Monitor`{: style="border: 1px solid black" }を選択します。
 
 **`【リモートPCで実施】`**
 ```shell
@@ -342,7 +347,8 @@ $ rqt
 TurtleBot3のトピックとノードの関係を可視化するには、rqt_graphを使用します。
 rqt_graphは各ノードがpublish/subscribeするトピックをグラフ表示します。
 
-`roscore`が動作していることを確認後、以下のコマンドを使用してリモートPCからrqt_graphを実行します。
+***`roscore`が動作していることを確認後、以下のコマンドを使用してリモートPCからrqt_graphを実行します。***
+
 各ノードとトピックの関係が表示されない場合は、左上のコンボボックスから、`Nodes/Topics(all)`を選択します。
 
 **`【リモートPCで実施】`**
