@@ -14,7 +14,7 @@ date: 2022-01-27
 
 `roscore`を実行します。
 
-``` bash
+```shell
 $ roscore
 ```
 
@@ -23,13 +23,14 @@ TurtleBot3のアプリケーションを起動するための基本的なパッ�
 新しいターミナルウィンドウを開き、TurtleBotと接続します。
 
 ```shell
-  ssh pi@192.168.xxx.xxx (The IP 192.168.xxx.xxx is your Raspberry Pi’s IP or hostname)
+$ ssh pi@192.168.xxx.xxx
 ```
-パスワードは**turtlebot**です。
+> **NOTE 1**: The IP `192.168.xxx.xxx` is your Raspberry Pi’s IP or hostname.  
+> **NOTE 2**: パスワードは`turtlebot`です。
 
 接続ができましたら下記のコマンドでTurtleBot3を起動します。
 
-``` bash
+```shell
 $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 
@@ -92,35 +93,25 @@ process[turtlebot3_diagnostics-3]: started with pid [14200]
 
 新しいターミナルを開き、SLAMファイルを起動します。
 
-``` bash
+```shell
 $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
 ```
 
-{% capture slam_tip %}
-**ヒント**: 上記のコマンドを実行すると、視覚化ツールRVizも実行されます。 RVizを個別に実行する場合は、次のいずれかのコマンドを使用します。
+> **ヒント**: 上記のコマンドを実行すると、視覚化ツールRVizも実行されます。 RVizを個別に実行する場合は、次のいずれかのコマンドを使用します。
+> - ```$ rviz -d `rospack find turtlebot3_slam`/rviz/turtlebot3_gmapping.rviz```
+> - ```$ rviz -d `rospack find turtlebot3_slam`/rviz/turtlebot3_cartographer.rviz```
+> - ```$ rviz -d `rospack find turtlebot3_slam`/rviz/turtlebot3_hector.rviz```
+> - ```$ rviz -d `rospack find turtlebot3_slam`/rviz/turtlebot3_karto.rviz```
+> - ```$ rviz -d `rospack find turtlebot3_slam`/rviz/turtlebot3_frontier_exploration.rviz```
 
-  - $ rviz -d \`rospack find turtlebot3_slam\`/rviz/turtlebot3_gmapping.rviz
-  - $ rviz -d \`rospack find turtlebot3_slam\`/rviz/turtlebot3_cartographer.rviz
-  - $ rviz -d \`rospack find turtlebot3_slam\`/rviz/turtlebot3_hector.rviz
-  - $ rviz -d \`rospack find turtlebot3_slam\`/rviz/turtlebot3_karto.rviz
-  - $ rviz -d \`rospack find turtlebot3_slam\`/rviz/turtlebot3_frontier_exploration.rviz
-
-{% endcapture %}
-
-<div class="notice--info">{{ slam_tip | markdownify }}</div>
-
-{% capture notice_03 %}
 **注釈**: さまざまなSLAMメソッドをサポートしています
 - TurtleBot3は、さまざまなSLAMメソッドの中で、Gmapping、Cartographer、Hector、およびKartoをサポートしています。 これを行うには、 `slam_methods：= xxxxx`オプションを変更します。
-- `slam_methods`オプションには` gmapping`、 `cartographer`、` hector`、 `karto`、` frontier_exploration`が含まれ、それらの1つを選択できます。
+- `slam_methods`オプションには`gmapping`、 `cartographer`、`hector`、 `karto`、`frontier_exploration`が含まれ、それらの1つを選択できます。
 - たとえば、kartoを使用するには、次のようにします:
 ```shell
 $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=karto
 ```
-{% endcapture %}
-<div class="notice--info">{{ notice_03 | markdownify }}</div>
 
-{% capture notice_04 %}
 **注釈**: SLAMパッケージの依存関係パッケージをインストールします
 - `Gmapping`の場合: <br>
 Gmappingに関連するパッケージは、[事前準備](linux_and_ros_install.html#ros-依存パッケージのインストール)ページですでにインストールされています。
@@ -137,27 +128,25 @@ $ sudo apt-get install ros-melodic-hector-mapping
 ```shell
 $ sudo apt-get install ros-melodic-slam-karto
 ```
-- `Frontier Exploration`の場合 (kineticのみ): <br>
+- `Frontier Exploration`の場合 (**`kinetic`のみ**): <br>
   Frontier Explorationはgmappingを使用しており、次のパッケージをインストールする必要があります。 \
   (melodicではパッケージが配布されていません。)
 ```shell
 $ sudo apt-get install ros-kinetic-frontier-exploration ros-kinetic-navigation-stage
 ```
-{% endcapture %}
-<div class="notice--info">{{ notice_04 | markdownify }}</div>
 
-今回は`Gmapping`を使用します。
+> **NOTE**: 今回は`Gmapping`を使用します。
 
 
 ## 遠隔操作ノードの実行
 
-新しいターミナルを開き、[前回の実習](turtlebot-basics.html/#キーボードでロボットを操作)で使用した遠隔操作ノードを実行します。 次のコマンドを使用すると、ユーザーはロボットを制御してSLAM操作を手動で実行できます。 速度の変更が速すぎたり、回転が速すぎたりするなどの激しい動きを避けることが重要です。 ロボットを使用して地図を作成する場合、ロボットは測定対象の環境の隅々までスキャンする必要があります。 きれいな地図を作成するにはある程度の経験が必要なので、SLAMを複数回練習してノウハウを作成しましょう。 マッピングプロセスを次の図に示します。
+新しいターミナルを開き、[前回の実習](turtlebot-basics.html#キーボードでロボットを操作-1)で使用した遠隔操作ノードを実行します。 次のコマンドを使用すると、ユーザーはロボットを制御してSLAM操作を手動で実行できます。 速度の変更が速すぎたり、回転が速すぎたりするなどの激しい動きを避けることが重要です。 ロボットを使用して地図を作成する場合、ロボットは測定対象の環境の隅々までスキャンする必要があります。 きれいな地図を作成するにはある程度の経験が必要なので、SLAMを複数回練習してノウハウを作成しましょう。 マッピングプロセスを次の図に示します。
 
-``` bash
+```shell
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
-``` bash
+```shell
   Control Your TurtleBot3!
   ---------------------------
   Moving around:
@@ -180,74 +169,77 @@ Gmappingには、さまざまな環境のパフォーマンスを変更するた
 
 このチューニングガイドでは、重要なパラメーターを設定するためのヒントをいくつか紹介します。 環境に応じてパフォーマンスを変更したい場合は、このヒントが役立つ可能性があり、時間を節約できます。
 
-下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_slam/config/gmapping_params.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
+> **NOTE**: 下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_slam/config/gmapping_params.yaml`のファイルに定義されています。
 
-_**maxUrange**_ 
-- デフォルト値：3.0
-- このパラメーターは、LIDARセンサーの最大使用可能範囲を設定します。
-*`x`は新しい値を意味しています。*
-```shell
-$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping maxUrange:=x
-```
-
-_**map_update_interval**_
-- デフォルト値：2.0 
-- マップの更新間の時間（秒単位）。 これを低く設定すると、マップがより頻繁に更新されます。 ただし、より大きな計算負荷が必要になります。 このパラメーターの設定は、環境によって異なります。
-```shell
-$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping map_update_interval:=x
-```
-
-![](/images/turtlebot3/tuning_map_update_interval.png)
-
-_**minimumScore**_ 
-- デフォルト値：50 
-- スキャンマッチングの結果を考慮するための最小スコア。 このパラメーターにより、ポーズ推定のジャンプを回避できます。
-   これが適切に設定されている場合は、（Slamのノードが起動しているターミナルで）以下の情報を見ることができます。
-
-  ```
-  Average Scan Matching Score=278.965
-  neff= 100
-  Registering Scans:Done
-  update frame 6
-  update ld=2.95935e-05 ad=0.000302522
-  Laser Pose= -0.0320253 -5.36882e-06 -3.14142
+- _**maxUrange**_ 
+  - デフォルト値：3.0
+  - このパラメーターは、LIDARセンサーの最大使用可能範囲を設定します。
+  *`x`は新しい値を意味しています。*
+  ```shell
+  $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping maxUrange:=x
   ```
 
-  この設定が高すぎる場合は、以下の警告が表示されます。
-
+- _**map_update_interval**_
+  - デフォルト値：2.0 
+  - マップの更新間の時間（秒単位）。 これを低く設定すると、マップがより頻繁に更新されます。 ただし、より大きな計算負荷が必要になります。 このパラメーターの設定は、環境によって異なります。
+  ```shell
+  $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping map_update_interval:=x
   ```
-  Scan Matching Failed, using odometry. Likelihood=0
-  lp:-0.0306155 5.75314e-06 -3.14151
-  op:-0.0306156 5.90277e-06 -3.14151
+  ![](/images/turtlebot3/tuning_map_update_interval.png)
+
+- _**minimumScore**_ 
+  - デフォルト値：50 
+  - スキャンマッチングの結果を考慮するための最小スコア。 このパラメーターにより、ポーズ推定のジャンプを回避できます。
+     これが適切に設定されている場合は、（SLAMのノードが起動しているターミナルで）以下の情報を見ることができます。
+  
+    ```
+    Average Scan Matching Score=278.965
+    neff= 100
+    Registering Scans:Done
+    update frame 6
+    update ld=2.95935e-05 ad=0.000302522
+    Laser Pose= -0.0320253 -5.36882e-06 -3.14142
+    ```
+  
+    この設定が高すぎる場合は、以下の警告が表示されます。
+  
+    ```
+    Scan Matching Failed, using odometry. Likelihood=0
+    lp:-0.0306155 5.75314e-06 -3.14151
+    op:-0.0306156 5.90277e-06 -3.14151
+    ```
+  ```shell
+  $ rosparam set /turtlebot3_slam_gmapping/minimumScore X
   ```
-```shell
-$ rosparam set /turtlebot3_slam_gmapping/minimumScore X
-```
 
-_**linearUpdate**_ 
-- デフォルト値：1.0 
-- ロボットが移動すると、毎回スキャン処理が行われます。
-```shell
-$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping linearUpdate:=x
-```
+- _**linearUpdate**_ 
+  - デフォルト値：1.0 
+  - ロボットが移動すると、毎回スキャン処理が行われます。
+  ```shell
+  $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping linearUpdate:=x
+  ```
 
-_**angularUpdate**_ 
-- デフォルト値：0.2
-- ロボットが回転すると、毎回スキャン処理が行われます。 これをlinearUpdateよりも小さく設定することを推奨します。
-```shell
-$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping angularUpdate=x
-```
+- _**angularUpdate**_ 
+  - デフォルト値：0.2
+  - ロボットが回転すると、毎回スキャン処理が行われます。 これをlinearUpdateよりも小さく設定することを推奨します。
+  ```shell
+  $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping angularUpdate=x
+  ```
 
-パラメータの値を確認したい場合は：
-```shell
-$ rosparam get パラメータ名
-```
+> **ヒント**: `rosparam set`で変更することができます：
+> ```shell
+> $ rosparam set パラメータ名 パラメータの値
+> ```
 
-どういうパラメータがあるかのとパラメータ名を調べるには：
-```shell
-$ rosparam list
-```
+> **ヒント**: どういうパラメータがあるかのとパラメータ名を調べるには：
+> ```shell
+> $ rosparam list
+> ```
 
+> **ヒント**: パラメータの値を確認したい場合は：
+> ```shell
+> $ rosparam get パラメータ名
+> ```
 
 ## マップの保存
 

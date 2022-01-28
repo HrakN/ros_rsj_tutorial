@@ -42,7 +42,8 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 ロボットを動かして下記のようなマップが作成すれば終了です。
 
-![](/images/turtlebot3/map-turtlebot3-world.png)
+<!-- ![](/images/turtlebot3/map-turtlebot3-world.png) -->
+<img src="/images/turtlebot3/map-turtlebot3-world.png" alt="map" width="300"/>
 
 **マップを保存**
 
@@ -62,7 +63,7 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 
 ## 初期ポーズを推定する
 
-まずロボットの初期姿勢推定を実行する必要があります。 RVizのメニューで`2D Pose Estimate`を押すと、非常に大きな緑色の矢印が表示されます。 所定のマップで実際のロボットが配置されているポーズに移動し、マウスの左ボタンを押したまま緑色の矢印をロボットの正面が向いている方向にドラッグし、以下の手順に従います。
+まずロボットの初期姿勢推定を実行する必要があります。 RVizのメニューで`2D Pose Estimate`{: style="border: 1px solid black" }を押すと、非常に大きな緑色の矢印が表示されます。 所定のマップで実際のロボットが配置されているポーズに移動し、マウスの左ボタンを押したまま緑色の矢印をロボットの正面が向いている方向にドラッグし、以下の手順に従います。
 
 - `2D Pose Estimate`{: style="border: 1px solid black" }ボタンを選択します。
 - TurtleBot3が配置されているマップ内のおおよそのポイントをクリックし、カーソルをドラッグしてTurtleBot3が向いている方向を示します。
@@ -77,7 +78,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 ![](/images/turtlebot3/2d_pose_estimate.png)
 
-**注意**: `Estimate InitialPose`に使用される`turtlebot3_teleop_keyboard`ノードは、使用後に終了する必要があります。 そうしない場合はトピックが次のステップのナビゲーションノードの`/cmd_vel`トピックと重複するため、ロボットは奇妙な動作をします。
+> **注意**: `2D Pose Estimate`{: style="border: 1px solid black" }に使用される`turtlebot3_teleop_keyboard`ノードは、使用後に終了する必要があります。 そうしない場合はトピックが次のステップのナビゲーションノードの`/cmd_vel`トピックと重複するため、ロボットは奇妙な動作をします。
 {: .notice--success}
 
 ## ナビゲーション目標の送信
@@ -85,7 +86,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 すべての準備ができたらナビゲーションGUIからmoveコマンドを試してみましょう。 RVizのメニューで`2D Nav Goal`{: style="border: 1px solid black" }を押すと、非常に大きな緑色の矢印が表示されます。 この緑色の矢印は、ロボットの宛先を指定できるマーカーです。 矢印のルートはロボットの`x`と`y`の位置であり、矢印が指す方向はロボットの`theta`方向です。 ロボットが移動する位置でこの矢印をクリックし、ドラッグして以下の手順のように方向を設定します。
 
 - `2D Nav Goal`{: style="border: 1px solid black" }ボタンを選択します。
-- マップ内の特定のポイントをクリックしてゴール位置を設定し、カーソルをTurtleBotが最後に向いている方向にドラッグします。
+- マップ内の特定のポイントをクリックしてゴール位置を設定し、カーソルをTurtleBot3が最後に向いている方向にドラッグします。
 
 ロボットは、地図に基づいて目的地への障害物を回避するためのパスを作成します。 次に、ロボットはパスに沿って移動します。 この時、いきなり障害物を検知しても障害物を避けて目標点に移動します。
 
@@ -100,7 +101,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 このチューニングガイドでは、重要なパラメーターを設定するためのヒントをいくつか紹介します。 環境に応じてパフォーマンスを変更したい場合は、このヒントが役立つ可能性があり、チューニングの時間を節約できます。
 
-下記のパラメータのデフォルト値は`/opt/ros/kinetic/share/turtlebot3_navigation/param/costmap_common_param_burger.yaml`のファイルに定義されています。下記のようなコマンドで設定することができます。`parameter_name`に変更したいパラメータ名に書き換え、`x`に新しい値に書き換えます。
+下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_navigation/param/costmap_common_param_burger.yaml`のファイルに定義されています。下記のようなコマンドで設定することができます。`parameter_name`に変更したいパラメータ名に書き換え、`x`に新しい値に書き換えます。
 
 ```shell
 $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_sim.yaml parameter_name:=x
@@ -120,7 +121,7 @@ _**cost_scaling_factor**_
 
   最適なパスは、ロボットが障害物間の中心を通過することです。 障害物から遠ざけるために、この係数を小さく設定します。
 
-下記のパラメータのデフォルト値は`/opt/ros/kinetic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
+下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
 
 _**max_vel_x**_
 - デフォルト値：0.22
