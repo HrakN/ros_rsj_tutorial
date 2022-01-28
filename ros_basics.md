@@ -10,7 +10,7 @@ date: 2020-01-23
 
 基本的なROS上で動くプログラムの書き方とコンパイル方法を学習します。
 
-<span style="color:red">**下記の実習を行うために、まず、`リモートPC`の`ROS_MASTER_URI`と`ROS_HOSTNAME`を`localhost`に戻します。**</span>
+***下記の実習を行うために、まず、`リモートPC`の`ROS_MASTER_URI`と`ROS_HOSTNAME`を`localhost`に戻します。***
 
 エディタで~/.bashrcを開きます。以下ではエディタとしてgeditを使用しています。
 
@@ -24,7 +24,8 @@ $ gedit ~/.bashrc
 ![ROS_MASTER_URIとROS_HOSTNAMEの変更](images/seminar_no139/rosbasics_change_to_localhost.png)
 
 修正後、画面右上Saveにて保存してgeditを閉じます。
-次に環境変数を反映させます。
+
+***次に環境変数を反映させます。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -83,6 +84,8 @@ src
 
 このディレクトリに、本作業用のパッケージをダウンロードします。
 
+***以下のコマンドを実行してください。***
+
 **`【リモートPCで実施】`**
 ```shell
 $ cd ~/catkin_ws/src
@@ -116,6 +119,8 @@ URLが分かれば上の手順だけで簡単にROSのパッケージが自分�
 
 では、次にパッケージのディレクトリ構成を確認します。<br>
 ダウンロードしているパッケージがバージョンアップされている場合などには、下記の実行例とファイル名が異なったり、ファイルが追加・削除されている場合があります。
+
+***以下のコマンドを実行してください。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -155,7 +160,7 @@ $
 Linuxでのプログラム開発がはじめての方には、Ubuntuにデフォルトでインストールされている`gedit`がおすすめです。
 プログラミング作業が多い方には[`Visual Studio Code`](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)がおすすめです。
 
-お好みのテキストエディタで `~/catkin_ws/src/rsj_seminar_no139_ros_basics/src/Publish.cpp` を開きます。
+***お好みのテキストエディタで `~/catkin_ws/src/rsj_seminar_no139_ros_basics/src/Publish.cpp` を開きます。***
 
 ```cpp
 #include <ros/ros.h>
@@ -301,7 +306,7 @@ main ループが終了すると作成した変数は自動的にクリーンア
 
 ROS パッケージをビルドするためには、`catkin_make`コマンドを用います。
 
-下記コマンドをターミナルで実行してみましょう。
+***下記コマンドをターミナルで実行してみましょう。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -312,7 +317,7 @@ $ catkin_make
 ROSシステムの実行の際、ROSを通してノード同士がデータをやりとりするために用いる「roscore」を起動しておく必要があります。<br>
 2つ目のターミナルを開き、それぞれで以下を実行して下さい。
 
-1つ目のターミナルで下記を実行します。
+***1つ目のターミナルで下記を実行します。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -326,7 +331,7 @@ ROSでワークスペースを利用するとき、ターミナルでそのワ�
 一つのターミナルで一回だけ実行すれば十分です。そのターミナルを閉じるまで有効となります。<br>
 この作業を省略するため、`~/.bashrc`に`source devel/setup.bash`を追加することをおすすめします。(*`install_ros_melodic.sh`を利用した場合は`.bashrc`に`source devel/setup.bash`が既に追加されています。*{: style="color: red"})
 
-2つ目のターミナルで下記を実行します。
+***2つ目のターミナルで下記を実行します。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -337,20 +342,21 @@ $ rosrun rsj_seminar_no139_ros_basics publish
 
 上記のようなログが表示されれば成功です。
 
-ソースコードにパラメータを利用したので、コマンドラインからパラメータ設定を試してみましょう。<br>
-ノードを実行した2つ目のターミナル（__注意：`roscore`のターミナルではなくて__{: style="color: red" } ）に `Ctrl+c`{: style="border: 1px solid black" } を入力してノードを終了します。<br>
-そして以下を実行してください。
+ソースコードにパラメータを利用したので、コマンドラインからパラメータ設定を試してみましょう。
+
+***ノードを実行した2つ目のターミナル（__注意：`roscore`のターミナルではなくて__{: style="color: red" } ）に `Ctrl+c`{: style="border: 1px solid black" } を入力してノードを終了します。***
+
+***そして以下を実行してください。***
 
 **`【リモートPCで実施】`**
 ```shell
-$ rosrun rsj_seminar_no139_ros_basics publish \
-  _message:=test-2 _date:=today
+$ rosrun rsj_seminar_no139_ros_basics publish _message:=test-2 _date:=today
 [ INFO] [1640146529.644756809]: Publishing message 'test-2 today'
 ```
 
 上記のようなログが表示されれば成功です。
 
-実行後は両方のターミナルで `Ctrl+c`{: style="border: 1px solid black" } でノードと`roscore`を終了します。
+***実行後は両方のターミナルで `Ctrl+c`{: style="border: 1px solid black" } でノードと`roscore`を終了します。***
 
 ### 受信ノードの作成
 
@@ -414,15 +420,16 @@ msgはクラスへのポインタなので「-&gt;」を用い、以降はクラ
 
 ### 実行
 
-作成したノードを実行してみましょう。<br>
-1つ目のターミナルで以下を実行します。
+作成したノードを実行してみましょう。
+
+***1つ目のターミナルで以下を実行します。***
 
 **`【リモートPCで実施】`**
 ```shell
 $ roscore
 ```
 
-そして2つ目のターミナルで以下を実行します。
+***そして2つ目のターミナルで以下を実行します。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -431,7 +438,7 @@ $ rosrun rsj_seminar_no139_ros_basics publish
 [ INFO] [1494840089.900580884]: Publishing message 'test seminar 2022 January 29'
 ```
 
-最後に、3番目のターミナルを開いて、下記を実行します。
+***最後に、3番目のターミナルを開いて、下記を実行します。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -443,7 +450,7 @@ $ rosrun rsj_seminar_no139_ros_basics show
 
 以上の手順で、ROSパッケージに含まれるノードのソースコードを編集し、ビルドして、実行できるようになりました。
 
-正常動作を確認後、各ターミナルにて`Ctrl+c`{: style="border: 1px solid black" } にて、roscoreおよび、`publish`ノード、`show`ノードを停止してください。
+***正常動作を確認後、各ターミナルにて`Ctrl+c`{: style="border: 1px solid black" } にて、roscoreおよび、`publish`ノード、`show`ノードを停止してください。***
 
 ## システムとして実行する
 
@@ -497,8 +504,9 @@ launchファイルは、ノードやパラメータの組み合わせを定義�
 
 ### roslaunchでシステムを起動
 
-開いているターミナルに`roscore`や起動中のノードをすべて `Ctrl+c`{: style="border: 1px solid black" } で停止します。<br>
-その後、いずれか１つのターミナルで以下を実行します。
+***`roscore`や起動中のノードをすべて `Ctrl+c`{: style="border: 1px solid black" } で停止します。***
+
+***その後、いずれか１つのターミナルで以下を実行します。***
 
 **`【リモートPCで実施】`**
 ```shell
@@ -538,7 +546,7 @@ Test seminar January 29
 
 「Test seminar January 29」が繰り返して表示されたら成功です。
 
-`Ctrl+c`{: style="border: 1px solid black" } でノードを停止します。
+***`Ctrl+c`{: style="border: 1px solid black" } でノードを停止します。***
 
 ```shell
 Test seminar January 29
