@@ -344,7 +344,7 @@ $ rosrun rsj_seminar_no139_ros_basics publish
 
 ソースコードにパラメータを利用したので、コマンドラインからパラメータ設定を試してみましょう。
 
-***ノードを実行した2つ目のターミナル（__注意：`roscore`のターミナルではなくて__{: style="color: red" } ）に `Ctrl+c`{: style="border: 1px solid black" } を入力してノードを終了します。***
+***ノードを実行した2つ目のターミナル（注意：`roscore`のターミナルではなくて）に `Ctrl+c`{: style="border: 1px solid black" } を入力してノードを終了します。***
 
 ***そして以下を実行してください。***
 

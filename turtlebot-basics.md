@@ -18,7 +18,7 @@ $ echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-## シミュレーションでTurtleBotを操作
+## シミュレーションでTurtleBot3を操作
 
 ***シミュレーション環境をインストールします。***
 
@@ -77,7 +77,7 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ***シミュレータと`turtlebot3_teleop_key`を起動したターミナルで`Ctrl+c`{: style="border: 1px solid black" }を押すとプログラムが終了します。***
 
 
-## 実際のTurtleBotを操作
+## 実際のTurtleBot3を操作
 
 ***下記の実習を行うために、まず`ROS_MASTER_URI`と`ROS_HOSTNAME`の`localhost`をリモートPCのIPアドレスに変更します。(下図参照)***
 
@@ -97,7 +97,7 @@ $ source ~/.bashrc
 
 {% capture notice_01 %}
 **警告**：
-1. TurtleBot側のPC上で roscore を **実行しないでください。**
+1. TurtleBot3側のPC上で roscore を **実行しないでください。**
 2. 各デバイスのIPアドレスが正しく設定されているかどうかを確認してください。
 3. バッテリー電圧が11V以下になるとブザーアラームが鳴り続け、アクチュエータが作動しなくなります。ブザーアラームが鳴った場合は、バッテリーを充電する必要があります。
 {% endcapture %}
@@ -120,11 +120,11 @@ $ roscore
 
 TurtleBot3のアプリケーションを起動するための基本的なパッケージを起動します。
 
-***新しいターミナルウィンドウを開き、TurtleBotの制御コンピュータ(SBC)にログインします。***
+***新しいターミナルウィンドウを開き、TurtleBot3の制御コンピュータ(SBC)にログインします。***
 
 **`【リモートPCで実施】`**
 ```shell
-  ssh ubuntu@192.168.YY.YY (The IP 192.168.YY.YY is your Raspberry Pi’s IP or hostname)
+$ ssh ubuntu@192.168.YY.YY (The IP 192.168.YY.YY is your Raspberry Pi’s IP or hostname)
 ```
 パスワードは**turtlebot**です。(変更している場合は適宜読み替えてください)
 
