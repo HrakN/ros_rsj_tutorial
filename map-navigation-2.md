@@ -21,13 +21,13 @@ $ roscore
 新しいターミナルウィンドウを開き、TurtleBotと接続します。
 
 ```shell
-  ssh pi@192.168.xxx.xxx (The IP 192.168.xxx.xxx is your Raspberry Pi’s IP or hostname)
+  ssh ubuntu@192.168.xxx.xxx (The IP 192.168.xxx.xxx is your Raspberry Pi’s IP or hostname)
 ```
 パスワードは**turtlebot**です。
 
 下記のような表示があれば接続が成功しました。
 ```shell
-username@pc_name:~$ ssh pi@192.168.10.11
+username@pc_name:~$ ssh ubuntu@192.168.10.11
 turtlebot@192.168.10.11’s password:
 
 ...
