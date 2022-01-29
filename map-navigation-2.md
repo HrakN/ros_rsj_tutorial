@@ -18,31 +18,32 @@ date: 2020-01-23
 $ roscore
 ```
 
-新しいターミナルウィンドウを開き、TurtleBotと接続します。
+新しいターミナルウィンドウを開き、TurtleBot3と接続します。
 
 ```shell
-  ssh ubuntu@192.168.xxx.xxx (The IP 192.168.xxx.xxx is your Raspberry Pi’s IP or hostname)
+$ ssh ubuntu@192.168.xxx.xxx
 ```
-パスワードは**turtlebot**です。
+> **NOTE 1**: The IP `192.168.xxx.xxx` is your Raspberry Pi’s IP or hostname.  
+> **NOTE 2**: パスワードは`turtlebot`です。
 
 下記のような表示があれば接続が成功しました。
 ```shell
 username@pc_name:~$ ssh ubuntu@192.168.10.11
-turtlebot@192.168.10.11’s password:
+ubuntu@192.168.10.11’s password:
 
 ...
 
 Last login: [曜日] [月] [日] XX:XX:XX 2021 from 192.168.XX.XX
-turtlebot@turtlebot:~$
+ubuntu@192.168.10.11:~$
 ```
 
-``` bash
+```shell
 $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 
 新しいターミナルを開き、ナビゲーションファイルを起動します。
 
-``` bash
+```shell
 $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
 ```
 
@@ -55,7 +56,7 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 
 次に、`turtlebot3_teleop_keyboard`ノードなどのツールを使用してロボットを前後に動かし、周囲の環境情報を収集して、ロボットが現在地図上のどこにあるかを調べます。
 
-``` bash
+```shell
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 

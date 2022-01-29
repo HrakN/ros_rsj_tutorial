@@ -205,9 +205,10 @@ If you want to close, insert 's'
 
 適切な座標を入力し、`Enter`{: style="border: 1px solid black" }キーを押すとロボットが動きます。
 
+
 **課題** 上記のプログラムを参考しながら指定したポイントまで障害物を回避しながらロボットを移動させます。
 
-`turtlebot3_pointtop_key.py`は　`/opt/ros/melodic/lib/turtlebot3_example/`にあります。
+`turtlebot3_pointtop_key.py`は`/opt/ros/melodic/lib/turtlebot3_example/`にあります。
 
 
 <button type="button" class="bth btn-primary btn-lg">[
