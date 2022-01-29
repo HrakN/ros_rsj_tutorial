@@ -23,7 +23,7 @@ TurtleBot3のアプリケーションを起動するための基本的なパッ�
 新しいターミナルウィンドウを開き、TurtleBotと接続します。
 
 ```shell
-$ ssh pi@192.168.xxx.xxx
+$ ssh ubuntu@192.168.xxx.xxx
 ```
 > **NOTE 1**: The IP `192.168.xxx.xxx` is your Raspberry Pi’s IP or hostname.  
 > **NOTE 2**: パスワードは`turtlebot`です。
