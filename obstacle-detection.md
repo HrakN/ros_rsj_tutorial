@@ -24,7 +24,7 @@ Turtlebot3を起動します（[参照](./turtlebot-basics.html#実際のTurtleB
 
 ```shell
 $ cd ~/catkin_ws/src/
-$ git clone https://github.com/igra9/rsj_seminar_2021_navigation.git
+$ git clone https://github.com/garcia-g/ros_rsj_tutorial_navigation.git
 $ cd ..
 $ catkin_make
 $ source ~/catkin_ws/devel/setup.bash
@@ -33,7 +33,7 @@ $ source ~/catkin_ws/devel/setup.bash
 シミュレーションを起動します。
 
 ```shell
-$ roslaunch rsj_seminar_2021_navigation turtlebot3_convini.launch
+$ roslaunch ros_rsj_tutorial_navigation turtlebot3_convini.launch
 ```
 
 PCの性能によってシミュレータを起動するのに多少時間がかかります。
@@ -131,18 +131,18 @@ def main():
 
 コピーした後にスクリプトの１行目に`#!/usr/bin/python`が書いてあることを確認します。
 
-新しいROS packageを作成するか`rsj_seminar_2021_navigation`のパッケージに追加します。
+新しいROS packageを作成するか`ros_rsj_tutorial_navigation`のパッケージに追加します。
 
-`rsj_seminar_2021_navigation`のパッケージに追加する場合。
+`ros_rsj_tutorial_navigation`のパッケージに追加する場合。
 ```shell
-$ cd ~/catkin_ws/src/rsj_seminar_2021_navigation
+$ cd ~/catkin_ws/src/ros_rsj_tutorial_navigation
 $ mkdir src
 ```
 上記の作成した`src`フォルダーに`name.py`でファイルを保存します（`name.py`は適切に名前を変更してください）。
 
 ファイルに実行権限を付与。
 ```shell
-$ chmod u+x ~/catkin_ws/src/rsj_seminar_2021_navigation/src/name.py
+$ chmod u+x ~/catkin_ws/src/ros_rsj_tutorial_navigation/src/name.py
 ```
 新しいパッケージを作成する場合（`package-name`を指定して適切に変更してください）：
 ```shell
