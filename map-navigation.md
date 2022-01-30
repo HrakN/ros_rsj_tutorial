@@ -42,8 +42,8 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 ロボットを動かして下記のようなマップが作成すれば終了です。
 
-<!-- ![](/images/turtlebot3/map-turtlebot3-world.png) -->
-<img src="/images/turtlebot3/map-turtlebot3-world.png" alt="map" width="300"/>
+![](/images/turtlebot3/map-turtlebot3-world.png)
+<!-- <img src="/images/turtlebot3/map-turtlebot3-world.png" alt="map" width="300"/> -->
 
 **マップを保存**
 
