@@ -174,17 +174,17 @@ Gmappingには、さまざまな環境のパフォーマンスを変更するた
 - _**maxUrange**_ 
   - デフォルト値：3.0
   - このパラメーターは、LIDARセンサーの最大使用可能範囲を設定します。
-  *`x`は新しい値を意味しています。*
-  ```shell
+  <!-- *`x`は新しい値を意味しています。* -->
+  <!-- ```shell
   $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping maxUrange:=x
-  ```
+  ``` -->
 
 - _**map_update_interval**_
   - デフォルト値：2.0 
   - マップの更新間の時間（秒単位）。 これを低く設定すると、マップがより頻繁に更新されます。 ただし、より大きな計算負荷が必要になります。 このパラメーターの設定は、環境によって異なります。
-  ```shell
+  <!-- ```shell
   $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping map_update_interval:=x
-  ```
+  ``` -->
   ![](/images/turtlebot3/tuning_map_update_interval.png)
 
 - _**minimumScore**_ 
@@ -208,28 +208,34 @@ Gmappingには、さまざまな環境のパフォーマンスを変更するた
     lp:-0.0306155 5.75314e-06 -3.14151
     op:-0.0306156 5.90277e-06 -3.14151
     ```
-  ```shell
+  <!-- ```shell
   $ rosparam set /turtlebot3_slam_gmapping/minimumScore X
-  ```
+  ``` -->
 
 - _**linearUpdate**_ 
   - デフォルト値：1.0 
   - ロボットが移動すると、毎回スキャン処理が行われます。
-  ```shell
+  <!-- ```shell
   $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping linearUpdate:=x
-  ```
+  ``` -->
 
 - _**angularUpdate**_ 
   - デフォルト値：0.2
   - ロボットが回転すると、毎回スキャン処理が行われます。 これをlinearUpdateよりも小さく設定することを推奨します。
-  ```shell
+  <!-- ```shell
   $ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping angularUpdate=x
-  ```
+  ``` -->
 
-> **ヒント**: `rosparam set`で変更することができます：
+<!-- > **ヒント**: `rosparam set`で変更することができます：
 > ```shell
 > $ rosparam set パラメータ名 パラメータの値
-> ```
+> ``` -->
+
+パラメータを編集するために，２つの方法があります：
+1. `/opt/ros/melodic/share/turtlebot3_slam/config/gmapping_params.yaml`を直接変更
+> NOTE: `turtlebot3_slam.launch`を起動する**前**に実施する必要があります．
+2. `rosrun rqt_reconfigure rqt_reconfigure`による変更
+> NOTE: `turtlebot3_slam.launch`を起動した**後**に実施する必要があります
 
 > **ヒント**: どういうパラメータがあるかのとパラメータ名を調べるには：
 > ```shell

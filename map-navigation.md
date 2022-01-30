@@ -103,15 +103,6 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_navigation/param/costmap_common_param_burger.yaml`のファイルに定義されています。下記のようなコマンドで設定することができます。
 
-`parameter_name`の代わりに変更したいパラメータ名を書き換え、`value`に新しい値に書き換えます。
-```shell
-$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_sim.yaml parameter_name:=value
-```
-例：
-```shell
-$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_sim.yaml inflation_radius:=0.2
-```
-
 _**inflation_radius**_
 - デフォルト値：1.0
 - このパラメーターは、障害物から膨張領域を作成します。このエリアを越えないようにパスが計画されます。これをロボットの半径よりも大きく設定しても安全です。詳細については、[page of costmap_2d wiki](http://wiki.ros.org/costmap_2d#Inflation)をフォローしてください。
@@ -126,7 +117,8 @@ _**cost_scaling_factor**_
 
   最適なパスは、ロボットが障害物間の中心を通過することです。 障害物から遠ざけるために、この係数を小さく設定します。
 
-下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`のファイルに定義されています。`rosparam set`で変更することができます。
+下記のパラメータのデフォルト値は`/opt/ros/melodic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`のファイルに定義されています。
+<!-- `rosparam set`で変更することができます。 -->
 
 _**max_vel_x**_
 - デフォルト値：0.22
@@ -174,6 +166,17 @@ _**sim_time**_
 
 ![](/images/turtlebot3/tuning_sim_time.png)
 
+<!-- `parameter_name`の代わりに変更したいパラメータ名を書き換え、`value`に新しい値に書き換えます。 -->
+ナビゲーションを起動します：
+```shell
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_sim.yaml
+```
+
+パラメータを編集するために，２つの方法があります：
+1. `/opt/ros/melodic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`を直接変更
+> NOTE: `turtlebot3_navigation.launch`を起動する**前**に実施する必要があります．
+2. `rosrun rqt_reconfigure rqt_reconfigure`による変更
+> NOTE: `turtlebot3_navigation.launch`を起動した**後**に実施する必要があります
 
 <button type="button" class="bth btn-primary btn-lg">[
     <span style="color:black">**メインページへ**</span>](index.html)</button>
