@@ -231,11 +231,11 @@ Gmappingには、さまざまな環境のパフォーマンスを変更するた
 > $ rosparam set パラメータ名 パラメータの値
 > ``` -->
 
-パラメータを編集するために，２つの方法があります：
-1. `/opt/ros/melodic/share/turtlebot3_slam/config/gmapping_params.yaml`を直接変更
+パラメータを編集するために：
+- `/opt/ros/melodic/share/turtlebot3_slam/config/gmapping_params.yaml`を直接変更
 > NOTE: `turtlebot3_slam.launch`を起動する**前**に実施する必要があります．
-2. `rosrun rqt_reconfigure rqt_reconfigure`による変更
-> NOTE: `turtlebot3_slam.launch`を起動した**後**に実施する必要があります
+<!-- 2. `rosrun rqt_reconfigure rqt_reconfigure`による変更
+> NOTE: `turtlebot3_slam.launch`を起動した**後**に実施する必要があります -->
 
 > **ヒント**: どういうパラメータがあるかのとパラメータ名を調べるには：
 > ```shell
