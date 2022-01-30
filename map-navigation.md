@@ -173,10 +173,10 @@ $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/m
 ```
 
 パラメータを編集するために，２つの方法があります：
-1. `/opt/ros/melodic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`に直接に変更すること
-> NOTE: `turtlebot3_navigation.launch`を起動する**前**しないとだめです．
-2. `rosrun rqt_reconfigure rqt_reconfigure`で変更すること
-> NOTE: `turtlebot3_navigation.launch`を起動する**後**しないとだめです．
+1. `/opt/ros/melodic/share/turtlebot3_navigation/param/dwa_local_planner_params_burger.yaml`を直接変更
+> NOTE: `turtlebot3_navigation.launch`を起動する**前**に実施する必要があります．
+2. `rosrun rqt_reconfigure rqt_reconfigure`による変更
+> NOTE: `turtlebot3_navigation.launch`を起動した**後**に実施する必要があります
 
 <button type="button" class="bth btn-primary btn-lg">[
     <span style="color:black">**メインページへ**</span>](index.html)</button>
